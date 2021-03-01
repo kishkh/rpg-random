@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Crypt from './Crypt/Crypt';
 import Pvp from './Pvp/Pvp';
 import Village from './Village/Village';
 import classes from './Content.module.css';
 import ProfileContainer from './Profile/ProfileContainer';
-import DungeonContainer from './Dungeon/DungeonContainer';
 import BattleContainer from './Battle/BattleContainer';
+import ArenaContainer from './Arena/ArenaContainer';
+import CryptContainer from './Crypt/CryptContainer';
 
 const Content = () => {
   return <div className={classes.container}>
@@ -14,13 +14,13 @@ const Content = () => {
         path='/profile' render={() => <ProfileContainer />}
     />
     <Route
-        path='/battle' render={() => <BattleContainer />}
+        path='/battle/:enemyId?' render={() => <BattleContainer />}
     />
     <Route
-        path='/crypt' render={() => <Crypt />}
+        path='/crypt' render={() => <CryptContainer />}
     />
     <Route
-        path='/dungeon' render={() => <DungeonContainer />}
+        path='/arena' render={() => <ArenaContainer />}
     />
     <Route
         path='/pvp' render={() => <Pvp />}

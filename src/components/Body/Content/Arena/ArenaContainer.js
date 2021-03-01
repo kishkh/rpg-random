@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import Dungeon from './Dungeon';
+import Arena from './Arena';
 
 
 const mapStateToProps = (state) => {
@@ -12,5 +12,5 @@ const mapDispatchToProps = (dispatch) => {
     
   }
 }
-const DungeonContainer = connect(mapStateToProps, mapDispatchToProps)(Dungeon) 
-export default DungeonContainer;
+const ArenaContainer = connect(mapStateToProps, mapDispatchToProps)(Arena) 
+export default ArenaContainer;

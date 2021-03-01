@@ -8,10 +8,17 @@
   width: 100%;
   height: 30px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   font-size: 20px;
   font-weight: 500;
   align-items: center;
+}
+.text span{
+  padding: 0 3px;
+}
+.combo{
+  font-size: 25px;
+  font-weight: 700;
 }
 .wrapper{
   display: flex;
@@ -39,7 +46,6 @@
   border:rgb(66, 66, 66) 1px solid;
   display: flex;
   box-shadow: 0 0 5px 1px  black;
-  
   align-items: center;
   justify-content: center;
   background-color: rgb(66, 66, 66);
@@ -48,6 +54,24 @@
   box-shadow: 0 0 8px 1px  black;
 }
 .attack:active{
+  box-shadow: 0 0 5px 1px  black;
+}
+.defence{
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
+  border-radius: 50%;
+  border:rgb(66, 66, 66) 1px solid;
+  display: flex;
+  box-shadow: 0 0 5px 1px  black;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(66, 66, 66);
+}
+.defence:hover{
+  box-shadow: 0 0 8px 1px  black;
+}
+.defence:active{
   box-shadow: 0 0 5px 1px  black;
 }
 
@@ -65,15 +89,3 @@
   visibility: hidden;
 }
 
-.defence{
-  width: 40px;
-  height: 40px;
-  margin: 0 5px;
-  border-radius: 50%;
-  display: flex;
-  box-shadow: 0 0 8px 1px  black;
-  border: none;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(66, 66, 66);
-}

@@ -11,7 +11,7 @@ const Profile = (props) => {
   }
   return <div className={classes.container}>
     <div className={classes.boxBody}>
-      <CharacterUser items={props.profile.items} />  
+      <CharacterUser player={props.profile} />  
       <div className={classes.selector}></div>
     </div>
     <div className={classes.box}>

@@ -11,7 +11,7 @@ const initialState = {
   damage: { min: 2, max: 4 },
   hp: { current: 40, full: 40 },
   skill: 0,
-  stats: { win: 3, lose: 1, killed: 2, coins: 100 },
+  stats: { win: 0, lose: 0, killed: 0, coins: 100 },
   items: {
     head: 'baby_face', body: 'polo_shirt',weapon: 'spoon',
     legs: 'trousers', color: 'lightyellow'
@@ -66,12 +66,17 @@ const profileReducer = (state = initialState, action) => {
           killed: state.stats.killed + action.data.killed,
           coins: state.stats.coins + action.data.coins,
         },
+
       }
+    case 'Is-dead':
+      return initialState;
     default:
       return state;
   }
 }
-
+export const isDeadCreator = () => {
+  return {type: 'Is-dead'}
+}
 export const lvlUpCreator = () => {
   return { type: 'Lvl-up' }
 }

@@ -8,6 +8,7 @@ import AttackButton from './ActionButton/AttackButton';
 import DefenceButton from './ActionButton/DefenceButton';
 
 import classes from './BattleField.module.css'
+import ModalWindow from '../../../../common/ModalWindow/ModalWindow';
 
 const BattleField = (props) => {
   const attack = (action) => {
@@ -29,7 +30,14 @@ const BattleField = (props) => {
 
   return (
     <div className={classes.container}>
-      <span className={classes.text}> Round: {props.battle.round}</span>
+      <div className={classes.text}>
+      <span>x </span>
+      <span className={classes.combo} style={{color: 'green', fontSize: 20+props.battle.player.series}}>{props.battle.player.series}</span>
+      <span > Round: {props.battle.round} </span>
+
+      <span>x </span>
+      <span className={classes.combo} style={{color: 'red', fontSize: 20+props.battle.enemy.series}}>{props.battle.enemy.series}</span>
+      </div>
       <div className={classes.wrapper}>
         <div className={classes.box}>
           {
@@ -108,24 +116,13 @@ const BattleField = (props) => {
         </div>
       </div>
       {
-        props.battle.round >= 5 &&
         props.battle.attackMode &&
         !props.battle.enemy.berserk &&
-        <NavLink to='/profile'>
-          <button onClick={props.leave}>Leave</button>
-        </NavLink>
+        <button onClick={props.isLeave}>Leave</button> 
       }
       {
-        props.battle.enemy.hp.current <= 0 &&
-        <NavLink to='/profile'>
-          <button onClick={props.win}>Win</button>
-        </NavLink>
-      }
-      {
-        props.battle.enemy.death &&
-        <NavLink to='/profile'>
-          <button onClick={props.kill}>Kill</button>
-        </NavLink>
+        props.battle.enemy.hp.current <= 1 &&
+          <button onClick={props.isWin}>Win</button>    
       }
     </div>
 

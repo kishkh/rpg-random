@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Battle from './Battle';
-import { attackCreator, battleAttackCreator, addBattleDataCreator, addHistoryCreator, defenceCreator, battleDefenceCreator, leaveCreator, winCreator, executionAttackCreator, killCreator, executionDefenceCreator, } from '../../../../redux/reducers/battle-reducer';
+import { attackCreator, battleAttackCreator, addBattleDataCreator, addHistoryCreator, defenceCreator, battleDefenceCreator, leaveCreator, winCreator, executionAttackCreator, killCreator, executionDefenceCreator, isLeaveCreator, isWinCreator, } from '../../../../redux/reducers/battle-reducer';
+import { withRouter } from 'react-router-dom';
 
 
 
@@ -35,16 +36,25 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(defenceCreator(defence))
       dispatch(executionDefenceCreator())
     },
-    leave: (data, hp) => {
-      dispatch(leaveCreator(data, hp))
+    leave: () => {
+      dispatch(leaveCreator())
     },
-    win: (data, hp) => {
-      dispatch(winCreator(data, hp))
+    win: () => {
+      dispatch(winCreator())
     },
-    kill: (data, hp) => {
-      dispatch(killCreator(data, hp))
+    kill: () => {
+      dispatch(killCreator())
     },
+    isLeave: () => {
+      dispatch(isLeaveCreator())
+    },
+    isWin: () => {
+      dispatch(isWinCreator())
+    }
   }
 }
-const BattleContainer = connect(mapStateToProps, mapDispatchToProps)(Battle)
+const WithURLDataContainerBattle = withRouter(Battle)
+const BattleContainer = connect(mapStateToProps, mapDispatchToProps)(WithURLDataContainerBattle)
+
+
 export default BattleContainer;
