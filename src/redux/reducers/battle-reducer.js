@@ -15,10 +15,12 @@ const initialState = {
     },
     action: 0,
     combo: 0,
+    series: 0,
     berserk: false,
     hit: 0,
     death: false,
-    resultDamage: 0
+    resultDamage: null,
+    damageInfo: 4,
   },
   enemy: {
     name: 'test',
@@ -35,10 +37,12 @@ const initialState = {
       color: ''
     },
     combo: 0,
+    series: 0,
     berserk: false,
     hit: 0,
     death: false,
-    resultDamage: 0,
+    resultDamage: 0,    
+    damageInfo: 4,
     action: 2,
   },
   attackMode: true,
@@ -48,7 +52,9 @@ const initialState = {
     killed: 0, item: 0
   },
   round: 0,
-  fightHistory: []
+  modalLeave: false,
+  modalWin: false,
+  fightHistory: [],
 }
 
 const randomChoice = (min, max) => {
@@ -102,7 +108,6 @@ const battleReducer = (state = initialState, action) => {
           ...state.enemy,
           action: randomChoice(1, 3)
         },
-        attackMode: false,
       }
     case 'Battle-attack': {
       const { min, max } = state.player.damage
@@ -117,6 +122,8 @@ const battleReducer = (state = initialState, action) => {
         player: {
           ...state.player,
           combo: result !== 0 ? state.player.combo + result : 0,
+          series: result !== 0 ? state.player.series + 1 : 0,
+          damageInfo: 4,
           hit: result,
           resultDamage: resultDamage,
         },
@@ -127,6 +134,7 @@ const battleReducer = (state = initialState, action) => {
             current: currentHP <= 1 ? 1 : currentHP
           },
           berserk: currentHP <= 1,
+          damageInfo: result === 0 ? 0 : state.player.action,
           damage: currentHP <= 1 && !state.enemy.berserk ? {
             min: state.enemy.damage.min * 2,
             max: state.enemy.damage.max * 2
@@ -147,7 +155,6 @@ const battleReducer = (state = initialState, action) => {
           ...state.enemy,
           action: randomChoice(1, 3)
         },
-        attackMode: true,
         round: state.round + 1
       }
     case 'Battle-defence': {
@@ -163,6 +170,8 @@ const battleReducer = (state = initialState, action) => {
         enemy: {
           ...state.enemy,
           combo: result !== 0 ? state.enemy.combo + result : 0,
+          series: result !== 0 ? state.enemy.series + 1 : 0,
+          damageInfo: 4,
           hit: result,
           resultDamage: resultDamage,
         },
@@ -172,6 +181,7 @@ const battleReducer = (state = initialState, action) => {
             ...state.player.hp,
             current: currentHP <= 1 ? 1 : currentHP
           },
+          damageInfo: result === 0 ? 0 : state.enemy.action,
           berserk: currentHP <= 1,
           damage: currentHP <= 1 && !state.player.berserk ? {
             min: state.player.damage.min * 2,
@@ -198,6 +208,7 @@ const battleReducer = (state = initialState, action) => {
           },
           death: result
         },
+        attackMode: true
       }
     }
     case 'Execution-attack': {
@@ -217,6 +228,7 @@ const battleReducer = (state = initialState, action) => {
           },
           death: result
         },
+        attackMode: false
       }
     }
     case 'Leave':
@@ -252,18 +264,12 @@ const battleReducer = (state = initialState, action) => {
           win: 1, killed: 1
         }
       }
-    case 'Die':
-      return {
-        ...state,
-        resultFight: {
-          ...state.resultFight,
-          coins: action.data.coinWin, playerHp: action.hp,
-          exp: action.data.expWin,
-          win: 1
-        }
-      }
     case 'Empty-result':
       return initialState
+    case 'Is-leave':
+      return { ...state, modalLeave: !state.modalLeave }
+    case 'Is-win':
+      return { ...state, modalWin: !state.modalWin }
     default:
       return state
   }
@@ -308,11 +314,14 @@ export const winCreator = () => {
 export const killCreator = () => {
   return { type: 'Kill' }
 }
-export const dieCreator = () => {
-  return { type: 'Die' }
-}
 
 export const emptyResultCreator = () => {
   return { type: 'Empty-result' }
+}
+export const isLeaveCreator = () => {
+  return { type: 'Is-leave' }
+}
+export const isWinCreator = () => {
+  return { type: 'Is-win' }
 }
 export default battleReducer;

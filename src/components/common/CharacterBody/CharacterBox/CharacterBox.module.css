@@ -1,13 +1,58 @@
-
 .box{
   display: flex;
   box-sizing: border-box;
+  position: relative;
   justify-content: center;
   align-items: center;
   width: 50px;
-  background-color:  rgb(66, 66, 66);
+  background-color:  rgb(60, 60, 60);
   border-radius: 3px;
   height: 50px;
   border: 1px orange solid;
 }
 
+@keyframes damage{
+  0% {
+    background-color: none;
+    transform:translateX(0) scale(1);
+  }
+
+  25% {
+    transform:translateX(2px) scale(.95);
+  }
+  50% {
+    background-color: red;
+    transform:translateX(0) scale(0.9);
+  }
+  75% {
+    transform:translateX(2px) scale(.95);
+  }
+
+  100% {
+    background-color: none;
+    transform:translateX(0) scale(1);
+  }
+}
+.damage{
+  animation: damage .5s linear;
+}
+@keyframes block{
+  0% {
+    background-color: none;
+    transform:rotate(0) ;
+  }
+
+  50% {
+    background-color: bisque;
+    transform:rotate(-0.30turn) ;
+  }
+
+
+  100% {
+    background-color: none;
+    transform:rotate(0);
+  }
+}
+.block{
+  animation: block .5s linear;
+}

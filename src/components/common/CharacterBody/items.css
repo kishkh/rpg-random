@@ -134,3 +134,33 @@
   height: 35px;
   mask-image: url('../../../assets/images/char5/metal-skirt.svg');
 }
+.button_cross{
+  width: 25px;
+  height: 25px;
+  mask-image: url('../../../assets/images/buttons/x-mark.svg');
+  background-color: crimson;
+}
+.button_leave{
+  width: 30px;
+  height: 30px;
+  mask-image: url('../../../assets/images/buttons/truce.svg');
+  background-color: white ;
+}
+.button_win{
+  width: 30px;
+  height: 30px;
+  mask-image: url('../../../assets/images/buttons/coins.svg');
+  background-color: gold ;
+}
+.button_kill{
+  width: 30px;
+  height: 30px;
+  mask-image: url('../../../assets/images/buttons/cash.svg');
+  background-color: goldenrod ;
+}
+.button_die{
+  width: 30px;
+  height: 30px;
+  mask-image: url('../../../assets/images/buttons/ancient-sword.svg');
+  background-color: rgb(63, 112, 79) ;
+}

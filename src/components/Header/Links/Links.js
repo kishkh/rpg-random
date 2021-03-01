@@ -15,10 +15,10 @@ const Links = () => {
       </div>
       <span>Village</span>
     </NavLink>
-    <NavLink to='/dungeon' activeClassName={classes.active} className={classes.link}> 
-      <div className={classes.dungeon}>
+    <NavLink to='/arena' activeClassName={classes.active} className={classes.link}> 
+      <div className={classes.arena}>
       </div>
-      <span>Dungeon</span>
+      <span>Arena</span>
     </NavLink>
     <NavLink to='/pvp' activeClassName={classes.active} className={classes.link}> 
       <div className={classes.pvp}>
