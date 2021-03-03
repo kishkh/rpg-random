@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import { isDeadCreator, lvlUpCreator, skillUpCreator, updateDataCreator } from '../../../../redux/reducers/profile-reducer';
+import { isDeadCreator, isHealingFalseCreator, lvlUpCreator, skillUpCreator, updateDataCreator } from '../../../../redux/reducers/profile-reducer';
 import {emptyResultCreator} from '../../../../redux/reducers/battle-reducer'
 import ProfileClassContainer from './ProfileClassContainer';
 import { isEnemyDeadCreator, restartCreator } from '../../../../redux/reducers/enemy-reducer';
@@ -15,8 +15,9 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    lvlUp: () => {
+    lvlUp: (timers) => {
       dispatch(lvlUpCreator())
+      
     },
     skillUp: (attack, defence) => {
       dispatch(skillUpCreator(attack, defence))
@@ -27,7 +28,7 @@ const mapDispatchToProps = (dispatch) => {
     isDead: (data) => {
       dispatch(updateCryptDataCreator(data))
       dispatch(isDeadCreator())
-      dispatch(restartCreator())
+      dispatch(restartCreator()) 
     },
     updateData: (data) => {
       dispatch(updateDataCreator(data))

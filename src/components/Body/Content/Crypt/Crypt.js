@@ -3,9 +3,9 @@ import CharacterUser from '../../../common/CharacterBody/CharacterUser';
 import classes from './Crypt.module.css'
 
 const Crypt = ({ heroes }) => {
-  const heroesList = heroes.length > 0 ? heroes.map(hero => {
+  const heroesList = heroes.length > 0 ? heroes.map((hero, i) => {
     return (
-      <div className={classes.wrapper}>
+      <div key={`${i + 1}crypt`} className={classes.wrapper}>
         <div className={classes.box}>
           <CharacterUser  player={hero} />
         </div>
@@ -32,7 +32,7 @@ const Crypt = ({ heroes }) => {
           </div>
           <div className={classes.row}>
             <div className='ico_damage'></div>
-            <span>{hero.damage.min / 2}-{hero.damage.max / 2}</span>
+            <span>{hero.damage.min}-{hero.damage.max}</span>
           </div>
           <div className={classes.row}>
             <div className='ico_hp'></div>

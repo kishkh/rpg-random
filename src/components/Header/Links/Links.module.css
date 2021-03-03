@@ -1,22 +1,20 @@
 .container{
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   margin: 20px;
 }
 .link{
   margin: 0 10px;
+  position: relative;
   text-decoration: none;
   color: white;
-}
-.profile{
-  width: 50px;
-  height: 50px;
-  mask-image: url('../../../assets/images/Header/portrait.svg');
-  background-color: white;
 }
 .village{
   width: 50px;
   height: 50px;
-  mask-image: url('../../../assets/images/hobbit-dwelling.svg');
+  mask-image: url('../../../assets/images/Header/huts-village.svg');
   background-color: white;
 }
 .arena{
@@ -36,10 +34,4 @@
   height: 50px;
   mask-image: url('../../../assets/images/ancient-sword.svg');
   background-color: white;
-}
-.active{
-  color: yellow;
-}
-.text{
-  width:80%;  
 }

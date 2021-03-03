@@ -1,14 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import attackImg from '../../../../../assets/images/atack-defence/crossed-axes.svg'
-import dieImg from '../../../../../assets/images/atack-defence/tombstone.svg';
-import killImg from '../../../../../assets/images/atack-defence/battered-axe.svg'
+import attackImg from '../../../../../assets/images/attack-defence/crossed-axes.svg'
+import dieImg from '../../../../../assets/images/attack-defence/tombstone.svg';
+import killImg from '../../../../../assets/images/attack-defence/battered-axe.svg'
 import defenceImg from '../../../../../assets/images/checked-shield.svg';
 import AttackButton from './ActionButton/AttackButton';
 import DefenceButton from './ActionButton/DefenceButton';
 
 import classes from './BattleField.module.css'
-import ModalWindow from '../../../../common/ModalWindow/ModalWindow';
 
 const BattleField = (props) => {
   const attack = (action) => {

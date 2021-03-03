@@ -55,6 +55,7 @@ const initialState = {
   modalLeave: false,
   modalWin: false,
   fightHistory: [],
+  isFight: false,
 }
 
 const randomChoice = (min, max) => {
@@ -231,9 +232,15 @@ const battleReducer = (state = initialState, action) => {
         attackMode: false
       }
     }
+    case 'Start': 
+      return {
+        ...state,
+        isFight: true,
+      }
     case 'Leave':
       return {
         ...state,
+        isFight: false,
         resultFight: {
           ...state.resultFight,
           coins: state.enemy.result.coinLeave,
@@ -245,6 +252,7 @@ const battleReducer = (state = initialState, action) => {
     case 'Win':
       return {
         ...state,
+        isFight: false,
         resultFight: {
           ...state.resultFight,
           coins: state.enemy.result.coinWin,
@@ -256,6 +264,7 @@ const battleReducer = (state = initialState, action) => {
     case 'Kill':
       return {
         ...state,
+        isFight: false,
         resultFight: {
           ...state.resultFight,
           coins: state.enemy.result.coinKill,
@@ -263,6 +272,11 @@ const battleReducer = (state = initialState, action) => {
           exp: state.enemy.result.expKill,
           win: 1, killed: 1
         }
+      }
+    case 'Dead':
+      return {
+        ...state,
+        isFight: false,
       }
     case 'Empty-result':
       return initialState
@@ -304,7 +318,9 @@ export const executionDefenceCreator = () => {
   return { type: 'Execution-defence' }
 }
 
-
+export const startCreator = () => {
+  return { type: 'Start' }
+}
 export const leaveCreator = () => {
   return { type: 'Leave' }
 }
@@ -313,6 +329,9 @@ export const winCreator = () => {
 }
 export const killCreator = () => {
   return { type: 'Kill' }
+}
+export const deadCreator = () => {
+  return { type: 'Dead' }
 }
 
 export const emptyResultCreator = () => {

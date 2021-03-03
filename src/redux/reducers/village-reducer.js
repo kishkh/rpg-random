@@ -1,4 +1,4 @@
-const initialState = {
+const initialState = JSON.parse(localStorage.getItem('village')) || {
   village:{
     name: 'Village',
     house: 1,

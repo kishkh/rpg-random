@@ -31,12 +31,13 @@ const CharacterEnemy = (props) => {
       break;
     case 0:
       checkClass = weapon
+      break;
     default:
       break;
   }
   const result = items.map((item, i) => {
     return (
-      <div className={classes.wrapperEnemy}>
+      <div key={`${i+1}wrap`} className={classes.wrapperEnemy}>
         {
           (i + 1) % 2 === 1 &&
           <div className={classes.textContainer}>

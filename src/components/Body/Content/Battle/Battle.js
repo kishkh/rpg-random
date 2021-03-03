@@ -9,13 +9,12 @@ import ModalTitle from '../../../common/ModalWindow/ModalTitle/ModalTitle';
 import { NavLink } from 'react-router-dom';
 
 class Battle extends React.Component {
-
   componentDidMount() {
     const enemyId = +this.props.match.params.enemyId
     const enemyBattle = this.props.enemies.find(element => {
       return element.id === enemyId
     });
-    this.props.addBattleData(this.props.profile, enemyBattle)
+    this.props.start(this.props.profile, enemyBattle)
   }
 
   render() {
@@ -53,7 +52,7 @@ class Battle extends React.Component {
             <ModalTitle text={`You die! Your family will remember and avenge you! You can check your result in Crypt`}  />
             <div className={classes.btn_container}>
               <NavLink to='/profile'>
-                <ModalButton ico='button_die' event={()=>{}} />
+                <ModalButton ico='button_die' event={this.props.dead} />
               </NavLink>
             </div>
           </ModalWindow>

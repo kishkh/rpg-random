@@ -3,6 +3,7 @@
   height: 50px;
   transform: scale(-1, 1);
   mask-image: url('../../../assets/images/char10/baby-face.svg');
+  background-color: white;
 }
 .spoon{
   width: 40px;

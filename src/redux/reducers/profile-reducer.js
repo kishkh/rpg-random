@@ -1,6 +1,5 @@
-const initialState = {
+const defaultProfile =  {
   name: 'Andrew',
-  sonOf: 'Kot',
   lvl: 1,
   exp: { current: 0, nextLvl: 100 },
   nextLvlArr: [
@@ -13,11 +12,15 @@ const initialState = {
   skill: 0,
   stats: { win: 0, lose: 0, killed: 0, coins: 100 },
   items: {
-    head: 'baby_face', body: 'polo_shirt',weapon: 'spoon',
+    head: 'baby_face', body: 'polo_shirt', weapon: 'spoon',
     legs: 'trousers', color: 'lightyellow'
-  }
+  },
+  isHealing: false,
+  isHealingClass: false,
+  created: true,
+  freeItems: { head: 1 }
 }
-
+const initialState = JSON.parse(localStorage.getItem('profile')) || defaultProfile
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'Lvl-up':
@@ -26,14 +29,14 @@ const profileReducer = (state = initialState, action) => {
         lvl: ++state.lvl,
         exp: {
           ...state.exp,
-          nextLvl: state.nextLvlArr[ state.lvl - 1 ]
+          nextLvl: state.nextLvlArr[state.lvl - 1]
         },
         hp: {
           ...state.hp,
           current: state.hp.full
         },
         skill: ++state.skill
-      }  
+      }
     case 'Skill-up':
       return {
         ...state,
@@ -68,14 +71,50 @@ const profileReducer = (state = initialState, action) => {
         },
 
       }
+    case 'Heal':
+      return {
+        ...state,
+        hp: {
+          ...state.hp,
+          current: state.hp.current >= state.hp.full ? state.hp.full : state.hp.current + 1,
+
+        }
+      }
+    case 'Is-healing-true':
+      return {
+        ...state,
+        isHealing: true
+      }
+      case 'Is-healing-class':
+        return {
+          ...state,
+          isHealingClass: action.result
+        }
+    case 'Is-healing-false':
+      return {
+        ...state,
+        isHealing: false
+      }
     case 'Is-dead':
-      return initialState;
+      return defaultProfile;
     default:
       return state;
   }
 }
 export const isDeadCreator = () => {
-  return {type: 'Is-dead'}
+  return { type: 'Is-dead' }
+}
+export const healCreator = () => {
+  return { type: 'Heal' }
+}
+export const isHealingTrueCreator = () => {
+  return { type: 'Is-healing-true' }
+}
+export const isHealingFalseCreator = () => {
+  return { type: 'Is-healing-false' }
+}
+export const isHealingClassCreator = (result) => {
+  return { type: 'Is-healing-class', result }
 }
 export const lvlUpCreator = () => {
   return { type: 'Lvl-up' }
