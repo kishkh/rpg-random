@@ -1,5 +1,5 @@
 const defaultProfile =  {
-  name: 'Andrew',
+  name: '',
   lvl: 1,
   exp: { current: 0, nextLvl: 100 },
   nextLvlArr: [
@@ -12,12 +12,12 @@ const defaultProfile =  {
   skill: 0,
   stats: { win: 0, lose: 0, killed: 0, coins: 100 },
   items: {
-    head: 'baby_face', body: 'polo_shirt', weapon: 'spoon',
+    head: 'baby_face', body: 'polo_shirt', weapon: 'rock',
     legs: 'trousers', color: 'lightyellow'
   },
   isHealing: false,
   isHealingClass: false,
-  created: true,
+  created: false,
   freeItems: { head: 1 }
 }
 const initialState = JSON.parse(localStorage.getItem('profile')) || defaultProfile
@@ -97,9 +97,19 @@ const profileReducer = (state = initialState, action) => {
       }
     case 'Is-dead':
       return defaultProfile;
+    case 'Create-hero':
+      return {
+        ...state,
+        name: action.heroName,
+        items: {...state.items, color: action.color},
+        created: true,
+      }
     default:
       return state;
   }
+}
+export const createHeroCreator = (heroName, color) => {
+  return { type: 'Create-hero',heroName, color }
 }
 export const isDeadCreator = () => {
   return { type: 'Is-dead' }

@@ -3,12 +3,18 @@ import './profileIco.css'
 import classes from './Profile.module.css'
 import CharacterUser from '../../../common/CharacterBody/CharacterUser';
 import InfoString from '../../../common/InfoString/InfoString';
+import { Redirect } from 'react-router-dom';
 const Profile = ({ profile, skillUp }) => {
+  
   const skillUpAttack = () => {
     skillUp(profile.attack + 1, profile.defence)
   }
   const skillUpDefence = () => {
     skillUp(profile.attack, profile.defence + 1)
+  }
+  console.log(profile.created)
+  if (!profile.created) {
+    return <Redirect to={'/create'}/>
   }
   return <div className={classes.container}>
     <div className={classes.boxBody}>
@@ -19,8 +25,6 @@ const Profile = ({ profile, skillUp }) => {
       <InfoString icon='ico_name' text={profile.name} />
       <InfoString icon='ico_lvl' text={profile.lvl} />
       <InfoString icon='ico_exp' text={`${profile.exp.current}/${profile.exp.nextLvl}`} />
-
-
       <div className={classes.row}>
         <InfoString icon='ico_attack' text={profile.attack} />
         {

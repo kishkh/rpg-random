@@ -3,6 +3,8 @@ import Battle from './Battle';
 import { attackCreator, battleAttackCreator, addBattleDataCreator, addHistoryCreator, defenceCreator, battleDefenceCreator, leaveCreator, winCreator, executionAttackCreator, killCreator, executionDefenceCreator, isLeaveCreator, isWinCreator, startCreator, deadCreator, } from '../../../../redux/reducers/battle-reducer';
 import { withRouter } from 'react-router-dom';
 import { isHealingTrueCreator } from '../../../../redux/reducers/profile-reducer';
+import { compose } from 'redux';
+import withRedirect from '../../../../hoc/withRedirect';
 
 
 
@@ -62,8 +64,11 @@ const mapDispatchToProps = (dispatch) => {
     },
   }
 }
-const WithURLDataContainerBattle = withRouter(Battle)
-const BattleContainer = connect(mapStateToProps, mapDispatchToProps)(WithURLDataContainerBattle)
 
 
-export default BattleContainer;
+
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withRouter,
+  withRedirect
+)(Battle)

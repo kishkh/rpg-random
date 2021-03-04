@@ -6,7 +6,7 @@ import BattleField from './BattleField/BattleField';
 import ModalWindow from '../../../common/ModalWindow/ModalWindow';
 import ModalButton from '../../../common/ModalWindow/ModalButton/ModalButton';
 import ModalTitle from '../../../common/ModalWindow/ModalTitle/ModalTitle';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 
 class Battle extends React.Component {
   componentDidMount() {
@@ -15,6 +15,9 @@ class Battle extends React.Component {
       return element.id === enemyId
     });
     this.props.start(this.props.profile, enemyBattle)
+    if (!this.props.profile.created) {
+      return <Redirect to={'/create'}/>
+    }
   }
 
   render() {

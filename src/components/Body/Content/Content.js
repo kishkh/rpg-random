@@ -7,7 +7,7 @@ import ProfileContainer from './Profile/ProfileContainer';
 import BattleContainer from './Battle/BattleContainer';
 import ArenaContainer from './Arena/ArenaContainer';
 import CryptContainer from './Crypt/CryptContainer';
-import CreatePlayer from './Profile/CreatePlayer/CreatePlayer';
+import CreatePlayerContainer from './CreatePlayer/CreatePlayerContainer';
 
 const Content = () => {
   return <div className={classes.container}>
@@ -30,7 +30,7 @@ const Content = () => {
         path='/village' render={() => <Village />}
     />
     <Route
-        path='/create' render={() => <CreatePlayer />}
+        path='/create' render={() => <CreatePlayerContainer />}
     /> 
   </div>
 }
