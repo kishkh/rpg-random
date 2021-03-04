@@ -17,8 +17,8 @@
   mask-image: url('../../../assets/images/char10/polo-shirt.svg');
 }
 .rock{
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   mask-image: url('../../../assets/images/char10/rock.svg');
 }
 .trousers{
@@ -164,4 +164,131 @@
   height: 30px;
   mask-image: url('../../../assets/images/buttons/ancient-sword.svg');
   background-color: rgb(63, 112, 79) ;
+}
+.ogr_head{
+  width: 40px;
+  height: 40px;
+  mask-image: url('../../../assets/images/char6/ogre.svg');
+}
+.ogr_weapon{
+
+  transform: scale(-1, 1);
+  width: 45px;
+  height: 45px;
+  mask-image: url('../../../assets/images/char6/wood-club.svg');
+}
+.ogr_body{
+  width: 50px;
+  height: 50px;
+  mask-image: url('../../../assets/images/char6/muscular-torso.svg');
+}
+.ogr_legs{
+  width: 40px;
+  height: 40px;
+  mask-image: url('../../../assets/images/char6/loincloth.svg');
+}
+.executor_head{
+  width: 50px;
+  height: 50px;
+  mask-image: url('../../../assets/images/char7/executioner-hood.svg');
+}
+.executor_weapon{
+
+  transform: scale(-1, 1);
+  width: 45px;
+  height: 45px;
+  mask-image: url('../../../assets/images/char7/battered-axe.svg');
+}
+.executor_body{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../../../assets/images/char7/muscular-torso.svg');
+}
+.executor_legs{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../../../assets/images/char7/armored-pants.svg');
+}
+.mummy_head{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../../../assets/images/char8/mummy-head.svg');
+}
+.mummy_weapon{
+
+  width: 45px;
+  height: 45px;
+  mask-image: url('../../../assets/images/char8/severed-hand.svg');
+}
+.mummy_body{
+  width: 40px;
+  height: 40px;
+  mask-image: url('../../../assets/images/char8/ribcage.svg');
+}
+.mummy_legs{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../../../assets/images/char8/trousers.svg');
+}
+.grandF_head{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../../../assets/images/char9/wizard-face.svg');
+}
+.grandF_weapon{
+  transform: scale(-1, 1);
+  width: 45px;
+  height: 45px;
+  mask-image: url('../../../assets/images/char9/shepherds-crook.svg');
+}
+.grandF_body{
+  width: 50px;
+  height: 50px;
+  mask-image: url('../../../assets/images/char9/shirt.svg');
+}
+.grandF_legs{
+  width: 40px;
+  height: 40px;
+  mask-image: url('../../../assets/images/char9/trousers.svg');
+}
+.goblin_head{
+  width: 50px;
+  height: 50px;
+  mask-image: url('../../../assets/images/char12/goblin-head.svg');
+}
+.goblin_weapon{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../../../assets/images/char12/bowie-knife.svg');
+}
+.goblin_body{
+  width: 40px;
+  height: 40px;
+  mask-image: url('../../../assets/images/char12/heart-armor.svg');
+}
+.goblin_legs{
+  width: 35px;
+  height: 35px;
+  mask-image: url('../../../assets/images/char12/armored-pants.svg');
+}
+.cop_head{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../../../assets/images/char13/police-officer-head.svg');
+}
+.cop_weapon{
+  transform: scale(-1, 1);
+  width: 45px;
+  height: 45px;
+  mask-image: url('../../../assets/images/char13/telescopic-baton.svg');
+}
+.cop_body{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../../../assets/images/char13/kevlar-vest.svg');
+}
+.cop_legs{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../../../assets/images/char13/steeltoe-boots.svg');
 }
