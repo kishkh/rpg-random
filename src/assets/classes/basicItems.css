@@ -1,0 +1,142 @@
+.baby_face{
+  width: 50px;
+  height: 50px;
+  transform: scale(-1, 1);
+  mask-image: url('../images/basicItems/head/baby-face.svg');
+  background-color: white;
+}
+.architect-mask{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../images/basicItems/head/architect-mask.svg');
+  background-color: white;
+}
+.calavera{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../images/basicItems/head/calavera.svg');
+  background-color: white;
+}
+.cleopatra{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../images/basicItems/head/cleopatra.svg');
+  background-color: white;
+}
+.dead-head{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../images/basicItems/head/dead-head.svg');
+  background-color: white;
+}
+.iron-mask{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../images/basicItems/head/iron-mask.svg');
+  background-color: white;
+}
+
+.liar{
+  width: 50px;
+  height: 50px;
+  mask-image: url('../images/basicItems/head/liar.svg');
+  background-color: white;
+}
+.lynx-head{
+  width: 50px;
+  height: 50px;
+  mask-image: url('../images/basicItems/head/lynx-head.svg');
+  background-color: white;
+}
+.mandrill-head{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../images/basicItems/head/mandrill-head.svg');
+  background-color: white;
+}
+.mighty-boosh{
+  width: 50px;
+  height: 50px;
+  mask-image: url('../images/basicItems/head/mighty-boosh.svg');
+  background-color: white;
+}
+.ninja-mask{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../images/basicItems/head/ninja-mask.svg');
+  background-color: white;
+}
+.panda{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../images/basicItems/head/panda.svg');
+  background-color: white;
+}
+.pummeled{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../images/basicItems/head/pummeled.svg');
+  background-color: white;
+}
+.rabbit-head{
+  width: 50px;
+  height: 50px;
+  mask-image: url('../images/basicItems/head/rabbit-head.svg');
+  background-color: white;
+}
+.raccoon-head{
+  width: 50px;
+  height: 50px;
+  mask-image: url('../images/basicItems/head/raccoon-head.svg');
+  background-color: white;
+}
+.silenced{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../images/basicItems/head/silenced.svg');
+  background-color: white;
+}
+
+
+.polo_shirt{
+  width: 50px;
+  height: 50px;
+  mask-image: url('../images/basicItems/body/polo-shirt.svg');
+}
+.sleeveless_top{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../images/basicItems/body/sleeveless-top.svg');
+}
+.t_shirt{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../images/basicItems/body/t-shirt.svg');
+}
+.tank_top{
+  width: 45px;
+  height: 45px;
+  mask-image: url('../images/basicItems/body/tank-top.svg');
+}
+
+.trousers{
+  width: 50px;
+  height: 50px;
+  mask-image: url('../images/basicItems/legs/trousers.svg');
+}
+.skirt{
+  width: 40px;
+  height: 40px;
+  mask-image: url('../images/basicItems/legs/skirt.svg');
+}
+
+.spoon{
+  width: 40px;
+  height: 40px;
+  mask-image: url('../images/basicItems/weapon/spoon.svg');
+}
+.rock{
+  width: 35px;
+  height: 35px;
+  mask-image: url('../images/basicItems/weapon/rock.svg');
+}

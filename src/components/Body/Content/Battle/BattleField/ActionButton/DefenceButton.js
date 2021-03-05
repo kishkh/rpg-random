@@ -10,7 +10,7 @@ const DefenceButton = (props) => {
         props.classes.defence
       }
     >
-      <img className={props.classes.img} src={props.img} alt='D'></img>
+      <div className={props.img}/>
     </button>
   )
 }

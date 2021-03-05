@@ -29,7 +29,11 @@
   opacity: 1;
   pointer-events: all;
 }
-
+.bg{
+  background-color: rgb(66,66,66);
+  width: 50px;
+  height: 50px;
+}
 .content-modal_window__active{
   transform: scale(1);
 }
