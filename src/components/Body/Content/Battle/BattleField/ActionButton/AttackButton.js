@@ -10,7 +10,7 @@ const AttackButton = (props) => {
         `${props.classes.attack} ${props.classes.hide}`
       }
     >
-      <img className={props.classes.img} alt='A' src={props.img}></img>
+      <div className={props.img}></div>
     </button>
   )
 }

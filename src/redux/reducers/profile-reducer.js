@@ -8,17 +8,23 @@ const defaultProfile =  {
   attack: 1,
   defence: 1,
   damage: { min: 2, max: 4 },
-  hp: { current: 40, full: 40 },
+  hp: { current: 30, full: 30 },
   skill: 0,
   stats: { win: 0, lose: 0, killed: 0, coins: 100 },
   items: {
     head: 'baby_face', body: 'polo_shirt', weapon: 'rock',
     legs: 'trousers', color: 'lightyellow'
   },
+  inventory: {
+    head: [],
+    body: [], 
+    legs: [],
+    weapon: []
+    
+  },
   isHealing: false,
   isHealingClass: false,
   created: false,
-  freeItems: { head: 1 }
 }
 const initialState = JSON.parse(localStorage.getItem('profile')) || defaultProfile
 const profileReducer = (state = initialState, action) => {
@@ -35,22 +41,34 @@ const profileReducer = (state = initialState, action) => {
           ...state.hp,
           current: state.hp.full
         },
-        skill: ++state.skill
+        skill: state.skill + 2
       }
-    case 'Skill-up':
+    case 'Skill-up-hp':
       return {
         ...state,
-        attack: action.attack,
-        defence: action.defence,
-        skill: --state.skill,
         hp: {
-          full: 30 + (action.defence * 10),
-          current: 30 + (action.defence * 10)
+          current: state.hp.current + 5,
+          full: state.hp.full + 5,
         },
+        skill: --state.skill,
+      }
+      case 'Skill-up-min-damage':
+      return {
+        ...state,
         damage: {
-          min: Math.ceil(state.damage.max / 2),
-          max: 3 + (action.attack),
+          ...state.damage,
+          min: state.damage.min + 1  
         },
+        skill: --state.skill,
+      }
+      case 'Skill-up-max-damage':
+      return {
+        ...state,
+        damage: {
+          ...state.damage,
+          max: state.damage.max + 1  
+        },
+        skill: --state.skill,
       }
     case 'Update-data':
       return {
@@ -101,15 +119,21 @@ const profileReducer = (state = initialState, action) => {
       return {
         ...state,
         name: action.heroName,
-        items: {...state.items, color: action.color},
+        inventory: {
+          head: [...state.inventory.head, action.items.head],
+          body: [...state.inventory.body, action.items.body],
+          legs: [...state.inventory.legs, action.items.legs],
+          weapon: [...state.inventory.weapon, action.items.weapon],
+        },
+        items: {...action.items},
         created: true,
       }
     default:
       return state;
   }
 }
-export const createHeroCreator = (heroName, color) => {
-  return { type: 'Create-hero',heroName, color }
+export const createHeroCreator = (heroName, items) => {
+  return { type: 'Create-hero',heroName, items }
 }
 export const isDeadCreator = () => {
   return { type: 'Is-dead' }
@@ -132,8 +156,14 @@ export const lvlUpCreator = () => {
 export const updateDataCreator = (data) => {
   return { type: 'Update-data', data }
 }
-export const skillUpCreator = (attack, defence) => {
-  return { type: 'Skill-up', attack, defence }
+export const skillUpHPCreator = () => {
+  return { type: 'Skill-up-hp' }
+}
+export const skillUpMinDamageCreator = () => {
+  return { type: 'Skill-up-min-damage' }
+}
+export const skillUpMaxDamageCreator = () => {
+  return { type: 'Skill-up-max-damage' }
 }
 
 export default profileReducer;

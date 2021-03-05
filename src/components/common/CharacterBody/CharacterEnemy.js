@@ -1,7 +1,8 @@
 import React from 'react';
 import classes from './CharacterBody.module.css'
 import CharacterBox from './CharacterBox/CharacterBox';
-import './items.css'
+import '../../../assets/classes/enemiesItems.css'
+
 
 const CharacterEnemy = (props) => {
   

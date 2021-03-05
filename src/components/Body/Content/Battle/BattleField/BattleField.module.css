@@ -79,12 +79,7 @@
   width: 30px;
   height: 30px;
 }
-.defence_img{
-  mask-image: url('../../../../../assets/images/checked-shield.svg');
-  background-color: orange;
-  width: 24px;
-  height: 24px;
-}
+
 .hide{
   visibility: hidden;
 }

@@ -36,6 +36,17 @@
   align-items: center;
 
 }
+.row button{
+  width: 20px;
+  height: 20px;
+  background-color: orange;
+  border-radius: 3px;
+  border: rgb(22,22,22);
+  font-weight: 900;
+  font-size: 14px;
+  color: rgb(66,66,66);
+  margin: 0 3px;
+}
 .row span{
   padding:0 5px;
   font-size: 20px;

@@ -1,0 +1,64 @@
+
+.ico_skill{
+  width: 20px;
+  height: 20px;
+  background-color: orange;
+  mask-image: url('../images/profile/orb-direction.svg');
+}
+
+.ico_hp{
+  width: 20px;
+  transform: scale(-1, 1);
+  height: 20px;
+  background-color: orange;
+  mask-image: url('../images/profile/heart-plus.svg');
+}
+.ico_coin{
+  width: 20px;
+  transform: scale(-1, 1);
+  height: 20px;
+  background-color: orange;
+  mask-image: url('../images/profile/coins.svg');
+}
+.ico_killed{
+  width: 20px;
+  transform: scale(-1, 1);
+  height: 20px;
+  background-color: orange;
+  mask-image: url('../images/profile/backstab.svg');
+}
+.ico_record{
+  width: 20px;
+  transform: scale(-1, 1);
+  height: 20px;
+  background-color: orange;
+  mask-image: url('../images/profile/swords-emblem.svg');
+}
+.ico_damage{
+  width: 20px;
+  transform: scale(-1, 1);
+  height: 20px;
+  background-color: orange;
+  mask-image: url('../images/profile/hammer-drop.svg');
+}
+.ico_exp{
+  width: 20px;
+  transform: scale(-1, 1);
+  height: 20px;
+  background-color: orange;
+  mask-image: url('../images/profile/book-cover.svg');
+}
+.ico_lvl{
+  width: 20px;
+  transform: scale(-1, 1);
+  height: 20px;
+  background-color: orange;
+  mask-image: url('../images/profile/achievement.svg');
+}
+.ico_name{
+  width: 20px;
+  transform: scale(-1, 1);
+  height: 20px;
+  background-color: orange;
+  mask-image: url('../images/profile/person.svg');
+}

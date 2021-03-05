@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './CharacterBody.module.css'
 import CharacterBox from './CharacterBox/CharacterBox';
-import './items.css'
+import '../../../assets/classes/enemiesItems.css'
 
 const CharacterUser = (props) => {
   const { color, head, body, legs, weapon } = props.player.items;

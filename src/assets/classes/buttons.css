@@ -1,0 +1,54 @@
+.button_cross{
+  width: 25px;
+  height: 25px;
+  mask-image: url('../images/buttons/x-mark.svg');
+  background-color: crimson;
+}
+.button_leave{
+  width: 30px;
+  height: 30px;
+  mask-image: url('../images/buttons/truce.svg');
+  background-color: white ;
+}
+.button_win{
+  width: 30px;
+  height: 30px;
+  mask-image: url('../images/buttons/coins.svg');
+  background-color: gold ;
+}
+.button_kill{
+  width: 30px;
+  height: 30px;
+  mask-image: url('../images/buttons/cash.svg');
+  background-color: goldenrod ;
+}
+.button_die{
+  width: 30px;
+  height: 30px;
+  mask-image: url('../images/buttons/ancient-sword.svg');
+  background-color: rgb(63, 112, 79) ;
+}
+.button_attack{
+  width: 33px;
+  height: 33px;
+  mask-image: url('../images/buttons/axe-swing.svg');
+  background-color: rgb(114, 216, 148) ;
+}
+.button_attack_kill{
+  width: 30px;
+  height: 30px;
+  mask-image: url('../images/buttons/battered-axe.svg');
+  background-color: rgb(190, 60, 37) ;
+}
+.button_defence{
+  mask-image: url('../images/buttons/checked-shield.svg');
+  background-color: orange;
+  width: 30px;
+  height: 30px;
+}
+.button_defence_die{
+  width: 33px;
+  height: 33px;
+  mask-image: url('../images/buttons/heart-organ.svg');
+  background-color: rgb(196, 78, 78) ;
+}

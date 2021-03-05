@@ -11,8 +11,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    createHero: (heroName, color) => {
-      dispatch(createHeroCreator(heroName, color))
+    createHero: (heroName, items) => {
+      dispatch(createHeroCreator(heroName, items))
     }
   }
 }

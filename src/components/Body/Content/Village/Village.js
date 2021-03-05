@@ -2,7 +2,7 @@ import React from 'react';
 
 const Village = () => {
   return <div>
-    Village
+    This content will be available soon
   </div>
 }
 

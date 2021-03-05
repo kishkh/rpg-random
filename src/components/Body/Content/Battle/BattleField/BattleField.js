@@ -1,8 +1,5 @@
 import React from 'react';
-import attackImg from '../../../../../assets/images/attack-defence/crossed-axes.svg'
-import dieImg from '../../../../../assets/images/attack-defence/tombstone.svg';
-import killImg from '../../../../../assets/images/attack-defence/battered-axe.svg'
-import defenceImg from '../../../../../assets/images/checked-shield.svg';
+import '../../../../../assets/classes/buttons.css'
 import AttackButton from './ActionButton/AttackButton';
 import DefenceButton from './ActionButton/DefenceButton';
 
@@ -41,11 +38,11 @@ const BattleField = (props) => {
           {
             props.battle.player.berserk ?
               <DefenceButton
-                action={executionDefence} classes={classes} img={dieImg}
+                action={executionDefence} classes={classes} img='button_defence_die'
                 attackMode={props.battle.attackMode} case={1}
               /> :
               <DefenceButton
-                action={defence} classes={classes} img={defenceImg}
+                action={defence} classes={classes} img='button_defence'
                 attackMode={props.battle.attackMode} case={1}
                 hp={props.battle.player.hp.current}
               />
@@ -53,11 +50,11 @@ const BattleField = (props) => {
           {
             props.battle.enemy.berserk ?
               <AttackButton
-                action={executionAttack} classes={classes} img={killImg}
+                action={executionAttack} classes={classes} img='button_attack_kill'
                 attackMode={props.battle.attackMode} case={1}
               /> :
               <AttackButton
-                action={attack} classes={classes} img={attackImg}
+                action={attack} classes={classes} img='button_attack'
                 attackMode={props.battle.attackMode} case={1}
               />
           }
@@ -66,11 +63,11 @@ const BattleField = (props) => {
           {
             props.battle.player.berserk ?
               <DefenceButton
-                action={executionDefence} classes={classes} img={dieImg}
+                action={executionDefence} classes={classes} img='button_defence_die'
                 attackMode={props.battle.attackMode} case={2}
               /> :
               <DefenceButton
-                action={defence} classes={classes} img={defenceImg}
+                action={defence} classes={classes} img='button_defence'
                 attackMode={props.battle.attackMode} case={2}
                 hp={props.battle.player.hp.current}
               />
@@ -78,11 +75,11 @@ const BattleField = (props) => {
           {
             props.battle.enemy.berserk ?
               <AttackButton
-                action={executionAttack} classes={classes} img={killImg}
+                action={executionAttack} classes={classes} img='button_attack_kill'
                 attackMode={props.battle.attackMode} case={2}
               /> :
               <AttackButton
-                action={attack} classes={classes} img={attackImg}
+                action={attack} classes={classes} img='button_attack'
                 attackMode={props.battle.attackMode} case={2}
               />
           }
@@ -91,11 +88,11 @@ const BattleField = (props) => {
           {
             props.battle.player.berserk ?
               <DefenceButton
-                action={executionDefence} classes={classes} img={dieImg}
+                action={executionDefence} classes={classes} img='button_defence_die'
                 attackMode={props.battle.attackMode} case={3}
               /> :
               <DefenceButton
-                action={defence} classes={classes} img={defenceImg}
+                action={defence} classes={classes} img='button_defence'
                 attackMode={props.battle.attackMode} case={3}
                 hp={props.battle.player.hp.current}
               />
@@ -103,11 +100,11 @@ const BattleField = (props) => {
           {
             props.battle.enemy.berserk ?
               <AttackButton
-                action={executionAttack} classes={classes} img={killImg}
+                action={executionAttack} classes={classes} img='button_attack_kill'
                 attackMode={props.battle.attackMode} case={3}
               /> :
               <AttackButton
-                action={attack} classes={classes} img={attackImg}
+                action={attack} classes={classes} img='button_attack'
                 attackMode={props.battle.attackMode} case={3}
               />
           }
