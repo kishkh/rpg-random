@@ -2,9 +2,10 @@ import { connect } from 'react-redux';
 import Battle from './Battle';
 import { attackCreator, battleAttackCreator, addBattleDataCreator, addHistoryCreator, defenceCreator, battleDefenceCreator, leaveCreator, winCreator, executionAttackCreator, killCreator, executionDefenceCreator, isLeaveCreator, isWinCreator, startCreator, deadCreator, } from '../../../../redux/reducers/battle-reducer';
 import { withRouter } from 'react-router-dom';
-import { isHealingTrueCreator } from '../../../../redux/reducers/profile-reducer';
+import { isHealingTrueCreator, takeItemCreator } from '../../../../redux/reducers/profile-reducer';
 import { compose } from 'redux';
 import withRedirect from '../../../../hoc/withRedirect';
+import { withRedirectToProfile } from '../../../../hoc/withRedirectToProfile';
 
 
 
@@ -13,6 +14,7 @@ const mapStateToProps = (state) => {
     enemies: state.enemies.enemies,
     profile: state.profile,
     battle: state.battle,
+    condition: !state.battle.isFight
   }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -62,6 +64,9 @@ const mapDispatchToProps = (dispatch) => {
     isWin: () => {
       dispatch(isWinCreator())
     },
+    takeItem: (type, item) => {
+      dispatch(takeItemCreator(type, item))
+    }
   }
 }
 

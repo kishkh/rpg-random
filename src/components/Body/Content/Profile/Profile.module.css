@@ -2,53 +2,92 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 100%;
+}
+.wrapper{
+  display: flex;
+  max-width: 510px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 .box{
   display: flex;
+  width: 255px;
+  height: 230px;
   flex-direction: column;
   padding: 10px;
   border: orange 2px solid;
   border-radius: 3px;
-  background-color: rgb(66,66,66);
+  background-color: rgb(1, 50, 50);
   align-items: flex-start;
-}
-.boxBody{
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  border: orange 2px solid;
-  border-radius: 3px;
-  background-color: rgb(66,66,66);
-  align-items: center;
-}
-.selector{
-  min-width: 50px;
-  margin: 20px 0 10px;
-  min-height: 50px;
-  border-radius: 3px;
-  border: 2px solid orange;
 }
 .row{
   display: flex;
+  width: 100%;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
 }
+.btn_container{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.killContainer{
+  display: flex;
+  margin: 0 auto;
+  padding: 3px;
+  width: 200px;
+  height: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
 .row button{
-  width: 20px;
-  height: 20px;
+  width: 45px;
+  cursor: pointer;
+  height: 15px;
   background-color: orange;
   border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: rgb(22,22,22);
   font-weight: 900;
   font-size: 14px;
-  color: rgb(66,66,66);
-  margin: 0 3px;
+  color: rgb(1, 50, 50);
+  margin: 0 2px;
 }
-.row span{
-  padding:0 5px;
-  font-size: 20px;
-  color: orange;
+.inventory{
+  min-width: 255px;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: rgb(1, 50, 50);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  border: orange 2px solid;
 }
+.inventory button{
+  width: 100px;
+  cursor: pointer;
+  height: 25px;
+  background-color: orange;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: rgb(22,22,22);
+  font-weight: 900;
+  font-size: 15px;
+  color: rgb(1, 50, 50);
+  margin: 0 2px;
+}
+

@@ -1,12 +1,10 @@
-const defaultProfile =  {
+const defaultProfile = {
   name: '',
   lvl: 1,
   exp: { current: 0, nextLvl: 100 },
   nextLvlArr: [
     100, 250, 400, 600, 800, 1100, 1400, 1800, 2200, 2700, 3200, 3800, 4400, 5100
   ],
-  attack: 1,
-  defence: 1,
   damage: { min: 2, max: 4 },
   hp: { current: 30, full: 30 },
   skill: 0,
@@ -15,14 +13,14 @@ const defaultProfile =  {
     head: 'baby_face', body: 'polo_shirt', weapon: 'rock',
     legs: 'trousers', color: 'lightyellow'
   },
+  inventoryToggle: false,
   inventory: {
     head: [],
-    body: [], 
+    body: [],
     legs: [],
     weapon: []
-    
   },
-  isHealing: false,
+  isHealing: true,
   isHealingClass: false,
   created: false,
 }
@@ -52,21 +50,21 @@ const profileReducer = (state = initialState, action) => {
         },
         skill: --state.skill,
       }
-      case 'Skill-up-min-damage':
+    case 'Skill-up-min-damage':
       return {
         ...state,
         damage: {
           ...state.damage,
-          min: state.damage.min + 1  
+          min: state.damage.min + 1
         },
         skill: --state.skill,
       }
-      case 'Skill-up-max-damage':
+    case 'Skill-up-max-damage':
       return {
         ...state,
         damage: {
           ...state.damage,
-          max: state.damage.max + 1  
+          max: state.damage.max + 1
         },
         skill: --state.skill,
       }
@@ -103,15 +101,62 @@ const profileReducer = (state = initialState, action) => {
         ...state,
         isHealing: true
       }
-      case 'Is-healing-class':
-        return {
-          ...state,
-          isHealingClass: action.result
-        }
+    case 'Is-healing-class':
+      return {
+        ...state,
+        isHealingClass: action.result
+      }
     case 'Is-healing-false':
       return {
         ...state,
         isHealing: false
+      }
+    case 'Take-item':
+      
+      let artefact;
+      switch (action.name) {
+        case 'head':
+          debugger
+          artefact = {
+            head: 
+            [
+              ...state.inventory.head, action.item
+            ]
+          }
+          break;
+        case 'body':
+          artefact = {
+            body: 
+            [
+              ...state.inventory.body, action.item
+            ]
+          }
+          break;
+        case 'legs':
+          artefact = {
+            legs: 
+            [
+              ...state.inventory.legs, action.item
+            ]
+          }
+          break;
+        case 'weapon':
+          artefact = {
+            weapon: 
+            [
+              ...state.inventory.weapon, action.item
+            ]
+          }
+          break;
+        default:
+          break;
+      }
+      return {
+        ...state,
+        inventory: {
+          ...state.inventory,
+          ...artefact
+        }
       }
     case 'Is-dead':
       return defaultProfile;
@@ -125,15 +170,27 @@ const profileReducer = (state = initialState, action) => {
           legs: [...state.inventory.legs, action.items.legs],
           weapon: [...state.inventory.weapon, action.items.weapon],
         },
-        items: {...action.items},
+        items: { ...action.items },
         created: true,
+      }
+    case 'Change-items':
+      return {
+        ...state,
+        items: { ...action.items },
       }
     default:
       return state;
   }
 }
 export const createHeroCreator = (heroName, items) => {
-  return { type: 'Create-hero',heroName, items }
+  return { type: 'Create-hero', heroName, items }
+}
+export const changeItemsCreator = (items) => {
+  return { type: 'Change-items', items }
+}
+export const takeItemCreator = (name, item) => {
+  debugger
+  return { type: 'Take-item', name, item }
 }
 export const isDeadCreator = () => {
   return { type: 'Is-dead' }
@@ -165,5 +222,7 @@ export const skillUpMinDamageCreator = () => {
 export const skillUpMaxDamageCreator = () => {
   return { type: 'Skill-up-max-damage' }
 }
+
+
 
 export default profileReducer;

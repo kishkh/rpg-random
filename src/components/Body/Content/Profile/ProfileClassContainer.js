@@ -19,6 +19,7 @@ class ProfileClassContainer extends React.Component {
       <>
         <Profile 
           profile={this.props.profile}
+          changeItems={this.props.changeItems}
           skillUpHP={this.props.skillUpHP}
           skillUpMinDamage={this.props.skillUpMinDamage}
           skillUpMaxDamage={this.props.skillUpMaxDamage}

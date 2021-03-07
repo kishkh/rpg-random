@@ -1,5 +1,6 @@
 import React from 'react';
 import CharacterUser from '../../../common/CharacterBody/CharacterUser';
+import InfoString from '../../../common/InfoString/InfoString';
 import classes from './Crypt.module.css'
 
 const Crypt = ({ heroes }) => {
@@ -7,50 +8,21 @@ const Crypt = ({ heroes }) => {
     return (
       <div key={`${i + 1}crypt`} className={classes.wrapper}>
         <div className={classes.box}>
-          <CharacterUser  player={hero} />
+          <CharacterUser player={hero} />
         </div>
         <div className={classes.box}>
-          <div className={classes.row}>
-            <div className='ico_name'></div>
-            <span>{hero.name}</span>
-          </div>
-          <div className={classes.row}>
-            <div className='ico_lvl'></div>
-            <span>{hero.lvl}</span>
-          </div>
-          <div className={classes.row}>
-            <div className='ico_exp'></div>
-            <span>{hero.exp.current}</span>
-          </div>
-          <div className={classes.row}>
-            <div className='ico_attack'></div>
-            <span>{hero.attack}</span>
-          </div>
-          <div className={classes.row}>
-            <div className='ico_defence'></div>
-            <span>{hero.defence}</span>
-          </div>
-          <div className={classes.row}>
-            <div className='ico_damage'></div>
-            <span>{hero.damage.min}-{hero.damage.max}</span>
-          </div>
-          <div className={classes.row}>
-            <div className='ico_hp'></div>
-            <span>{hero.hp.full}</span>
-          </div>
-          <div className={classes.row}>
-            <div className='ico_record'></div>
-            <span>{hero.stats.win}-{hero.stats.lose}</span>
-          </div>
-          <div className={classes.row}>
-            <div className='ico_killed'></div>
-            <span>{hero.stats.killed}</span>
-          </div>
+          <InfoString icon='ico_name' text={hero.name} />
+          <InfoString icon='ico_lvl' text={hero.lvl} />
+          <InfoString icon='ico_exp' text={hero.exp.current} />
+          <InfoString icon='ico_damage' text={`${hero.damage.min}-${hero.damage.max}`} />
+          <InfoString icon='ico_hp' text={hero.hp.full} />
+          <InfoString icon='ico_record' text={`${hero.stats.win}-${hero.stats.lose}`} />
+          <InfoString icon='ico_killed' text={hero.stats.killed} />
         </div>
       </div>
     )
-  }
-  ) : ['Still nobody dead']
+  }) : ['Still nobody dead']
+  
   return <div className={classes.container}>
     {heroesList}
   </div>
