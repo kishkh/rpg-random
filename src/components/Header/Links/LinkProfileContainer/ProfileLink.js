@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from './ProfileLink.module.css';
 class ProfileLink extends React.Component {
-
+  
   componentDidUpdate() {
     this.props.profile.hp.current < this.props.profile.hp.full && !this.props.isFight && this.props.profile.isHealing && this.props.healPromise(this.props.profile.hp.current, this.props.profile.hp.full)
       .then((healTrue) => {

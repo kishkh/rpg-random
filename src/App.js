@@ -9,7 +9,10 @@ import Footer from './components/Footer/Footer';
 class App extends React.Component {
   componentDidMount() {
     window.addEventListener('beforeunload', e => {
-      localStorage.setItem('profile', JSON.stringify(this.props.store.getState().profile))
+      localStorage.setItem('profile', JSON.stringify({
+        ...this.props.store.getState().profile,
+        isHealing: true,
+      }))
       localStorage.setItem('enemies', JSON.stringify(this.props.store.getState().enemies))
       localStorage.setItem('crypt', JSON.stringify(this.props.store.getState().crypt))
       // window.store.getState().battle.isFight ?

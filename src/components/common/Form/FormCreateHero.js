@@ -1,8 +1,7 @@
 import React from 'react';
 import { Formik, Form } from 'formik'
-import classes from './Form.module.css'
 import FormControl from './FormControl';
-function FormContainer(props) {
+function FormCreateHero(props) {
   const headOptions = [
     {key: 'Baby_face', value: 'baby_face'},
     {key: 'Architect-mask', value: 'architect-mask'},
@@ -122,4 +121,4 @@ function FormContainer(props) {
   );
 }
 
-export default FormContainer;
+export default FormCreateHero;

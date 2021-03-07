@@ -6,7 +6,8 @@ import CreatePlayer from "./CreatePlayer";
 
 const mapStateToProps = (state) => {
   return {
-    profile: state.profile
+    profile: state.profile,
+    condition: state.profile.created
   }
 }
 const mapDispatchToProps = (dispatch) => {

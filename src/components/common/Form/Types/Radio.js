@@ -13,7 +13,6 @@ function Radio(props) {
           {
             ({ field }) => {
               return options.map((option, i) => {
-                console.log(i)
                 return (
                   <React.Fragment key={option.key}>
                     <input

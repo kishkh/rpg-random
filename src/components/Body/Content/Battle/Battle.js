@@ -4,6 +4,7 @@ import Hero from './Hero/Hero';
 import classes from './Battle.module.css'
 import BattleField from './BattleField/BattleField';
 import ModalWindow from '../../../common/ModalWindow/ModalWindow';
+import ModalWindowKill from '../../../common/ModalWindow/ModalWindowKill';
 import ModalButton from '../../../common/ModalWindow/ModalButton/ModalButton';
 import ModalTitle from '../../../common/ModalWindow/ModalTitle/ModalTitle';
 import { NavLink, Redirect } from 'react-router-dom';
@@ -43,14 +44,16 @@ class Battle extends React.Component {
               <ModalButton ico='button_cross' event={this.props.isWin} />
             </div>
           </ModalWindow>
-          <ModalWindow active={this.props.battle.enemy.death}>
-            <ModalTitle text={`You kill ${this.props.battle.enemy.name} get him money and can take one of him item`}  />
-            <div className={classes.btn_container}>
-              <NavLink to='/profile'>
-                <ModalButton ico='button_kill' event={this.props.kill} />
-              </NavLink>
-            </div>
-          </ModalWindow>
+          <ModalWindowKill
+            active={this.props.battle.enemy.death}
+            text={`You killed ${this.props.battle.enemy.name} get money and one of him item`}
+            enemy={this.props.battle.enemy}
+            takeItem={this.props.takeItem}
+            ico='button_kill' 
+            kill={this.props.kill} 
+          />
+            
+          
           <ModalWindow active={this.props.battle.player.death}>
             <ModalTitle text={`You die! Your family will remember and avenge you! You can check your result in Crypt`}  />
             <div className={classes.btn_container}>
