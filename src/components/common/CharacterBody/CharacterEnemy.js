@@ -3,7 +3,6 @@ import classes from './CharacterBody.module.css'
 import CharacterBox from './CharacterBox/CharacterBox';
 import '../../../assets/classes/enemiesItems.css'
 
-
 const CharacterEnemy = (props) => {
   
   const { color, head, body, legs, weapon} = props.enemy.items;
@@ -31,7 +30,7 @@ const CharacterEnemy = (props) => {
       checkClass = legs
       break;
     case 0:
-      checkClass = weapon
+      checkClass = weapon 
       break;
     default:
       break;
@@ -43,7 +42,6 @@ const CharacterEnemy = (props) => {
           (i + 1) % 2 === 1 &&
           <div className={classes.textContainer}>
             <span className={ item === checkClass ? `${classes.active} ${classes.miss}` : classes.miss}>Block</span>
-            
           </div>
         }
         <CharacterBox key={`${i + 1}${item}${color}`} checkClass={checkClass}  color={color} item={item} weapon={weapon} />

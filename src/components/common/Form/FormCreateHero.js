@@ -39,7 +39,7 @@ function FormCreateHero(props) {
   ]
   const initialValues = {
     name: 'hero',
-    color: '#84DAB4',
+    color: '#339359',
     headOption: headOptions[0].value,
     bodyOption: bodyOptions[0].value,
     legOption: legOptions[0].value,

@@ -3,12 +3,9 @@ const initialState = {
     name: 'user',
     lvl: 0,
     exp: { current: 0, nextLvl: 0 },
-    attack: 0,
-    defence: 0,
     damage: { min: 0, max: 0 },
     hp: { current: 0, full: 0 },
-
-    stats: { coins: 0, win: 0, lose: 0, killed: 0 },
+    stats: { coins: 0, win: 0, lose: 0},
     items: {
       head: '', body: '', weapon: '',
       legs: '', color: ''
@@ -41,15 +38,15 @@ const initialState = {
     berserk: false,
     hit: 0,
     death: false,
-    resultDamage: 0,    
+    resultDamage: 0,
     damageInfo: 4,
     action: 2,
   },
   attackMode: true,
   resultFight: {
-    coins: 0, hp: 0,
-    exp: 0, win: 0, lose: 0,
-    killed: 0, item: 0
+    coins: 0, coinsEnemyWin: 0, coinsEnemyKill: 0,
+    hp: 0, exp: 0, expEnemyWin: 0, item: 0,
+    win: 0, lose: 0
   },
   round: 0,
   modalLeave: false,
@@ -72,8 +69,6 @@ const battleReducer = (state = initialState, action) => {
           name: action.player.name,
           lvl: action.player.lvl,
           exp: { ...action.player.exp },
-          attack: action.player.attack,
-          defence: action.player.defence,
           damage: { ...action.player.damage },
           hp: { ...action.player.hp },
           stats: { ...action.player.stats },
@@ -90,14 +85,6 @@ const battleReducer = (state = initialState, action) => {
           items: { ...action.enemy.items }
         },
       }
-    case 'Add-history':
-      const history = `Player: attack:${state.player.action.attack} Enemy defence: ${state.enemy.action} hit: ${state.player.hit} combo: ${state.player.combo} Total damage: ${state.player.resultDamage} enemyaction${state.enemy.action} `;
-      const enemyHistory = `Enemy: attack:${state.enemy.action} Player defence: ${state.player.action.defence} hit: ${state.enemy.hit} combo: ${state.enemy.combo} Total damage: ${state.enemy.resultDamage} nemyaction${state.enemy.action}`;
-      return {
-        ...state,
-        fightHistory: [...state.fightHistory, state.attackMode ? enemyHistory : history]
-      }
-
     case 'Attack':
       return {
         ...state,
@@ -199,10 +186,11 @@ const battleReducer = (state = initialState, action) => {
         enemy: {
           ...state.enemy,
           combo: 0,
-          hit: 100,
+          damageInfo: 4,
         },
         player: {
           ...state.player,
+          damageInfo: 4,
           hp: {
             ...state.player.hp,
             current: result ? 0 : 1
@@ -218,11 +206,12 @@ const battleReducer = (state = initialState, action) => {
         ...state,
         player: {
           ...state.player,
+          damageInfo: 4,
           combo: 0,
-          hit: 100,
         },
         enemy: {
           ...state.enemy,
+          damageInfo: 4,
           hp: {
             ...state.enemy.hp,
             current: result ? 0 : 1
@@ -232,7 +221,7 @@ const battleReducer = (state = initialState, action) => {
         attackMode: false
       }
     }
-    case 'Start': 
+    case 'Start':
       return {
         ...state,
         isFight: true,
@@ -243,7 +232,7 @@ const battleReducer = (state = initialState, action) => {
         isFight: false,
         resultFight: {
           ...state.resultFight,
-          coins: state.enemy.result.coinLeave,
+          coinsEnemyKill: state.enemy.result.coinLeave,
           hp: state.player.hp.current,
           exp: state.enemy.result.expLeave,
           lose: 1
@@ -256,6 +245,8 @@ const battleReducer = (state = initialState, action) => {
         resultFight: {
           ...state.resultFight,
           coins: state.enemy.result.coinWin,
+          coinsEnemyWin: Math.ceil(state.enemy.result.coinWin * 0.7),
+          expEnemyWin: Math.ceil(state.enemy.result.expWin * 0.7),
           hp: state.player.hp.current,
           exp: state.enemy.result.expWin,
           win: 1
@@ -270,7 +261,7 @@ const battleReducer = (state = initialState, action) => {
           coins: state.enemy.result.coinKill,
           hp: state.player.hp.current,
           exp: state.enemy.result.expKill,
-          win: 1, killed: 1
+          win: 1
         }
       }
     case 'Dead':
@@ -290,15 +281,9 @@ const battleReducer = (state = initialState, action) => {
 
 }
 
-
-
-export const addHistoryCreator = () => {
-  return { type: 'Add-history' }
-}
 export const addBattleDataCreator = (player, enemy) => {
   return { type: 'Add-battle-data', player, enemy }
 }
-
 export const attackCreator = (attack) => {
   return { type: 'Attack', attack }
 }
@@ -317,7 +302,6 @@ export const executionAttackCreator = () => {
 export const executionDefenceCreator = () => {
   return { type: 'Execution-defence' }
 }
-
 export const startCreator = () => {
   return { type: 'Start' }
 }
@@ -333,7 +317,6 @@ export const killCreator = () => {
 export const deadCreator = () => {
   return { type: 'Dead' }
 }
-
 export const emptyResultCreator = () => {
   return { type: 'Empty-result' }
 }

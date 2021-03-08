@@ -15,8 +15,6 @@
   mask-image: url('../images/enemies/char1/pirate-wooden-pegleg.svg');
 }
 .pirate_hook{
-
-  transform: scale(-1, 1);
   width: 40px;
   height: 40px;
   mask-image: url('../images/enemies/char1/pirate-hook.svg');
@@ -48,8 +46,6 @@
   mask-image: url('../images/enemies/char3/barbarian.svg');
 }
 .barbarian_weapon{
-
-  transform: scale(-1, 1);
   width: 45px;
   height: 45px;
   mask-image: url('../images/enemies/char3/stone-axe.svg');
@@ -70,8 +66,6 @@
   mask-image: url('../images/enemies/char4/fanged-skull.svg');
 }
 .skelet_weapon{
-
-  transform: scale(-1, 1);
   width: 40px;
   height: 40px;
   mask-image: url('../images/enemies/char4/bone-mace.svg');
@@ -92,8 +86,6 @@
   mask-image: url('../images/enemies/char5/dwarf-face.svg');
 }
 .dwarf_weapon{
-
-  transform: scale(-1, 1);
   width: 45px;
   height: 45px;
   mask-image: url('../images/enemies/char5/thor-hammer.svg');
@@ -115,8 +107,6 @@
   mask-image: url('../images/enemies/char6/ogre.svg');
 }
 .ogr_weapon{
-
-  transform: scale(-1, 1);
   width: 45px;
   height: 45px;
   mask-image: url('../images/enemies/char6/wood-club.svg');
@@ -137,8 +127,6 @@
   mask-image: url('../images/enemies/char7/executioner-hood.svg');
 }
 .executor_weapon{
-
-  transform: scale(-1, 1);
   width: 45px;
   height: 45px;
   mask-image: url('../images/enemies/char7/battered-axe.svg');
@@ -159,7 +147,6 @@
   mask-image: url('../images/enemies/char8/mummy-head.svg');
 }
 .mummy_weapon{
-
   width: 45px;
   height: 45px;
   mask-image: url('../images/enemies/char8/severed-hand.svg');
@@ -180,7 +167,6 @@
   mask-image: url('../images/enemies/char9/wizard-face.svg');
 }
 .grandF_weapon{
-  transform: scale(-1, 1);
   width: 45px;
   height: 45px;
   mask-image: url('../images/enemies/char9/shepherds-crook.svg');
@@ -221,7 +207,6 @@
   mask-image: url('../images/enemies/char13/police-officer-head.svg');
 }
 .cop_weapon{
-  transform: scale(-1, 1);
   width: 45px;
   height: 45px;
   mask-image: url('../images/enemies/char13/telescopic-baton.svg');

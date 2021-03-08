@@ -4,7 +4,7 @@ import Enemy from './Enemy/Enemy';
 
 const Arena = (props) => {
 
-  let enemies = props.enemies.filter((enemy, i, arr) => {
+  let enemies = props.enemies.filter(enemy => {
     
     return enemy.death === false 
   })

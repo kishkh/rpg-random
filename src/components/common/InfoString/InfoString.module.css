@@ -1,12 +1,13 @@
 .row{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
 }
 .row span{
-  padding:0 5px;
   font-size: 20px;
+  padding: 0 0 0 15px;
   color: orange;
 }
+

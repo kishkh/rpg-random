@@ -5,6 +5,12 @@
   background-color: orange;
   mask-image: url('../images/profile/orb-direction.svg');
 }
+.ico_date{
+  width: 20px;
+  height: 20px;
+  background-color: orange;
+  mask-image: url('../images/profile/clockwork.svg');
+}
 
 .ico_hp{
   width: 20px;

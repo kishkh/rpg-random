@@ -9,7 +9,7 @@ const CharacterBox = (props) => {
       <div 
         className={
           props.item === props.checkClass ?
-          `${props.item} ${actionClass}` : props.item
+          `${props.item} ${actionClass} ` : props.item
         } 
         style={{ backgroundColor: props.color }}
       ></div>

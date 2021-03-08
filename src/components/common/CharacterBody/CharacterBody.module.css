@@ -30,6 +30,9 @@
   justify-content:flex-start;
   flex-direction: row;
 }
+.enemyWeapon{
+  transform: scale(-1, 1);
+}
 .damage{
   color:red;
   font-size: 18px;

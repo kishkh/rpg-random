@@ -8,30 +8,26 @@ import classes from './BattleField.module.css'
 const BattleField = (props) => {
   const attack = (action) => {
     props.attack(action)
-    props.addHistory()
   }
   const defence = (action, hp) => {
     props.defence(action, hp)
-    props.addHistory()
   }
   const executionAttack = (action) => {
     props.executionAttack(action)
-    props.addHistory()
   }
   const executionDefence = (action) => {
     props.executionDefence(action)
-    props.addHistory()
   }
 
   return (
     <div className={classes.container}>
       <div className={classes.text}>
-      <span>x </span>
-      <span className={classes.combo} style={{color: 'green', fontSize: 20+props.battle.player.series}}>{props.battle.player.series}</span>
-      <span > Round: {props.battle.round} </span>
+        <span>x </span>
+        <span className={classes.combo} style={{ color: 'green', fontSize: 20 + props.battle.player.series }}>{props.battle.player.series}</span>
+        <span > Round: {props.battle.round} </span>
 
-      <span>x </span>
-      <span className={classes.combo} style={{color: 'red', fontSize: 20+props.battle.enemy.series}}>{props.battle.enemy.series}</span>
+        <span>x </span>
+        <span className={classes.combo} style={{ color: 'red', fontSize: 20 + props.battle.enemy.series }}>{props.battle.enemy.series}</span>
       </div>
       <div className={classes.wrapper}>
         <div className={classes.box}>
@@ -113,11 +109,12 @@ const BattleField = (props) => {
       {
         props.battle.attackMode &&
         !props.battle.enemy.berserk &&
-        <button onClick={props.isLeave}>Leave</button> 
+        <button onClick={props.isLeave}>Leave</button>
       }
       {
         props.battle.enemy.hp.current <= 1 &&
-          <button onClick={props.isWin}>Win</button>    
+        props.battle.attackMode &&
+        <button onClick={props.isWin}>Win</button>
       }
     </div>
 

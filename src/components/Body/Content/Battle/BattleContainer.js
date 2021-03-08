@@ -1,11 +1,10 @@
 import { connect } from 'react-redux';
 import Battle from './Battle';
-import { attackCreator, battleAttackCreator, addBattleDataCreator, addHistoryCreator, defenceCreator, battleDefenceCreator, leaveCreator, winCreator, executionAttackCreator, killCreator, executionDefenceCreator, isLeaveCreator, isWinCreator, startCreator, deadCreator, } from '../../../../redux/reducers/battle-reducer';
+import { attackCreator, battleAttackCreator, addBattleDataCreator, defenceCreator, battleDefenceCreator, leaveCreator, winCreator, executionAttackCreator, killCreator, executionDefenceCreator, isLeaveCreator, isWinCreator, startCreator, deadCreator, } from '../../../../redux/reducers/battle-reducer';
 import { withRouter } from 'react-router-dom';
 import { isHealingTrueCreator, takeItemCreator } from '../../../../redux/reducers/profile-reducer';
 import { compose } from 'redux';
 import withRedirect from '../../../../hoc/withRedirect';
-import { withRedirectToProfile } from '../../../../hoc/withRedirectToProfile';
 
 
 
@@ -22,9 +21,6 @@ const mapDispatchToProps = (dispatch) => {
     start: (player, enemy) => {
       dispatch(addBattleDataCreator(player, enemy))
       dispatch(startCreator())
-    },
-    addHistory: () => {
-      dispatch(addHistoryCreator())
     },
     attack: (attack) => {
       dispatch(attackCreator(attack))
