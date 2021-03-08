@@ -8,7 +8,7 @@ const defaultProfile = {
   damage: { min: 2, max: 4 },
   hp: { current: 30, full: 30 },
   skill: 0,
-  stats: { win: 0, lose: 0, killed: 0, coins: 100 },
+  stats: { win: 0, lose: 0, killed: [], coins: 10 },
   items: {
     head: 'baby_face', body: 'polo_shirt', weapon: 'rock',
     legs: 'trousers', color: 'lightyellow'
@@ -23,6 +23,7 @@ const defaultProfile = {
   isHealing: true,
   isHealingClass: false,
   created: false,
+  date: 0,
 }
 const initialState = JSON.parse(localStorage.getItem('profile')) || defaultProfile
 const profileReducer = (state = initialState, action) => {
@@ -80,19 +81,19 @@ const profileReducer = (state = initialState, action) => {
           current: action.data.hp > 0 ? action.data.hp : state.hp.current
         },
         stats: {
+          ...state.stats,
           win: state.stats.win + action.data.win,
           lose: state.stats.lose + action.data.lose,
-          killed: state.stats.killed + action.data.killed,
           coins: state.stats.coins + action.data.coins,
         },
-
       }
     case 'Heal':
       return {
         ...state,
         hp: {
           ...state.hp,
-          current: state.hp.current >= state.hp.full ? state.hp.full : state.hp.current + 1,
+          current: state.hp.current >= state.hp.full ?
+            state.hp.full : state.hp.current + 1,
 
         }
       }
@@ -112,40 +113,43 @@ const profileReducer = (state = initialState, action) => {
         isHealing: false
       }
     case 'Take-item':
-      
+
       let artefact;
       switch (action.name) {
         case 'head':
-          debugger
           artefact = {
-            head: 
-            [
-              ...state.inventory.head, action.item
-            ]
+            head:
+              [
+                ...state.inventory.head,
+                action.item
+              ]
           }
           break;
         case 'body':
           artefact = {
-            body: 
-            [
-              ...state.inventory.body, action.item
-            ]
+            body:
+              [
+                ...state.inventory.body,
+                action.item
+              ]
           }
           break;
         case 'legs':
           artefact = {
-            legs: 
-            [
-              ...state.inventory.legs, action.item
-            ]
+            legs:
+              [
+                ...state.inventory.legs,
+                action.item
+              ]
           }
           break;
         case 'weapon':
           artefact = {
-            weapon: 
-            [
-              ...state.inventory.weapon, action.item
-            ]
+            weapon:
+              [
+                ...state.inventory.weapon,
+                action.item
+              ]
           }
           break;
         default:
@@ -172,16 +176,31 @@ const profileReducer = (state = initialState, action) => {
         },
         items: { ...action.items },
         created: true,
+        date: new Date().toLocaleString(),
       }
+    case 'Add-kill-enemy':
+      return action.head !== '' ? {
+        ...state,
+        stats: {
+          ...state.stats,
+          killed: [...state.stats.killed, action.head]
+        }
+      } : state
     case 'Change-items':
       return {
         ...state,
         items: { ...action.items },
       }
+    case 'Toggle-inventory':
+      return {
+        ...state,
+        inventoryToggle: !state.inventoryToggle
+      }
     default:
       return state;
   }
 }
+
 export const createHeroCreator = (heroName, items) => {
   return { type: 'Create-hero', heroName, items }
 }
@@ -189,8 +208,10 @@ export const changeItemsCreator = (items) => {
   return { type: 'Change-items', items }
 }
 export const takeItemCreator = (name, item) => {
-  debugger
   return { type: 'Take-item', name, item }
+}
+export const toggleInventoryCreator = () => {
+  return { type: 'Toggle-inventory' }
 }
 export const isDeadCreator = () => {
   return { type: 'Is-dead' }
@@ -222,7 +243,9 @@ export const skillUpMinDamageCreator = () => {
 export const skillUpMaxDamageCreator = () => {
   return { type: 'Skill-up-max-damage' }
 }
-
+export const addKillEnemyCreator = (head) => {
+  return { type: 'Add-kill-enemy', head }
+}
 
 
 export default profileReducer;

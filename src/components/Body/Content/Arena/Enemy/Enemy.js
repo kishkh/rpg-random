@@ -33,9 +33,11 @@ const Enemy = ({ enemy }) => {
           <div className='ico_exp'></div>
           <span>{enemy.result.expLeave}/{enemy.result.expWin}/{enemy.result.expKill}</span>
         </div>
-        <NavLink to={`/battle/${enemy.id}`}>
-          <button>Fight</button>
-        </NavLink>
+        <div className={classes.btnContainer}>
+          <NavLink to={`/battle/${enemy.id}`}>
+            <button>Fight</button>
+          </NavLink>
+        </div>
       </div>
     </div>
 

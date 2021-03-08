@@ -17,10 +17,10 @@ input{
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.428;
-  color: #555;
-  background-color: #fff;
+  color: orange;
+  background-color: rgb(1, 40, 40);
   background-image: none;
-  border: 1px solid #fff;
+  border: 1px solid rgb(60, 60, 60);
   border-radius: 4px;
 }
 input[type='color']{
@@ -37,6 +37,28 @@ input[type='radio']{
   }
 .formControl{
   margin-bottom: 20px;
+}
+button{
+  width: 120px;
+  cursor: pointer;
+  height: 30px ;
+  background-color: orange;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: rgb(22,22,22);
+  box-shadow: 0 0 6px 1px rgb(22,22,22);
+  font-weight: 900;
+  font-size: 15px;
+  color: rgb(1, 50, 50);
+  margin: 0 auto;
+}
+button:hover{
+  box-shadow: 0 0 10px 1px rgb(22,22,22)
+}
+button:active{
+  box-shadow: 0 0 5px 0px rgb(22,22,22)
 }
 .radio{
   display: flex;

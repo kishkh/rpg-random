@@ -65,6 +65,7 @@ class Battle extends React.Component {
 
           <div className={classes.boxL}>
             <Hero
+              profile={this.props.profile}
               player={this.props.battle.player} 
               enemyDamage={this.props.battle.enemy.resultDamage}
             />

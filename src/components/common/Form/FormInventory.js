@@ -33,6 +33,7 @@ function FormInventory({profile, changeItems, ...props}) {
         color: profile.items.color
       }
     )
+    props.toggleInventory()
   }
 
   return (
@@ -70,7 +71,7 @@ function FormInventory({profile, changeItems, ...props}) {
             name='weaponOption'
             options={weaponOptions}  
           />
-          <button type='submit' >Change</button>
+          <button className={props.bigBtn} type='submit' >Change</button>
         </Form>)
       }
     </Formik>

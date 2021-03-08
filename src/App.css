@@ -4,7 +4,7 @@
   margin: 0 auto;
   box-sizing: border-box;
   min-height: 100%;
-  background-color: gray;
+  background-color: rgb(88, 88, 88);
   display: grid;
   grid-template: minmax(100px, auto) 1fr minmax(70px, auto) / 1fr;
   grid-template-areas: 
@@ -16,4 +16,7 @@
   display: flex;
   width: 100%;
   justify-content: center;
+}
+.hide-box{
+  display: none;
 }

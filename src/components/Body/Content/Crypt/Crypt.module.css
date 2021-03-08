@@ -1,23 +1,94 @@
 .container{
   display: flex;
-  flex-direction:column-reverse;
+  flex-direction:column;
   width: 100%;
   align-items: center;
 }
 .wrapper{
   display: flex;
+
   flex-wrap: wrap;
-  margin: 30px 0;
+  margin: 15px 0;
 }
 .box{
   width: 255px;;
   display: flex;
   flex-direction: column;
   padding: 10px;
-  height: 190px;
+  height: 100%;
   border: orange 2px solid;
   border-radius: 3px;
   background-color: rgb(1,50,50);
   align-items: flex-start;
   justify-content: center;
+}
+.btnContainer{
+  display: flex;
+  width: 510px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background-color: rgb(1,50,50);
+  border-radius: 3px;
+  height: 50px;
+  border: 2px solid orange;
+}
+.btnContainer button{
+  margin: 0 10px;
+  width: 80px;
+  box-shadow: 0 0 6px 1px rgb(22,22,22);
+}
+.btnContainer button:hover{
+  
+  box-shadow: 0 0 10px 1px rgb(22,22,22);
+}
+.btnActive{
+  margin: 0 10px;
+  background-color: rgb(1, 50, 50);
+  color: goldenrod;
+  border: 2px solid orange;
+  width: 80px;
+  box-shadow: 0 0 6px 1px rgb(111, 111, 111);
+}
+.btnActive:hover{
+  
+  box-shadow: 0 0 10px 1px rgb(111, 111, 111);
+}
+.btnContainer span{
+  margin: 0 10px;
+  width: 55px;
+  font-weight: bold;
+  color: goldenrod;
+  height: 20px;
+}
+.killContainer{
+  display: flex;
+  height: 100%;
+  width: 200px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.row{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.icoContainer{
+  display: flex;
+  width: 22px;
+  margin:  2px;
+  height: 22px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid orange;
+  background: rgb(1, 40, 40);
+}
+.ico{
+  width: 16px !important;
+  height: 16px !important;
+  background-color: orange;
 }
