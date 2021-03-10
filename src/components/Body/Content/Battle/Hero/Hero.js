@@ -13,7 +13,7 @@ const Hero = ({ player, enemyDamage, profile }) => {
       )
     }) : []
   return <>
-    <div className={classes.row}>
+    <div className={classes.name}>
       <span>{player.name}</span>
     </div>
     <CharacterUser enemyDamage={enemyDamage} player={player} />

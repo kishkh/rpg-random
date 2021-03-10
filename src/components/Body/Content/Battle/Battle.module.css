@@ -11,6 +11,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .wrapper{
   display: flex;
   flex-direction: column;
@@ -22,7 +23,7 @@
 
 .boxL{
   display: flex;
-  height: 100%;
+  height: 365px;
   min-width: 200px;
   flex-direction: column;
   background-color: rgb(69, 69, 69);
@@ -35,7 +36,7 @@
 }
 .boxC{
   display: flex;
-  height: 100%;
+  height: 365px;
   min-width: 200px;
   flex-direction: column;
   color: orange;
@@ -49,7 +50,7 @@
 }
 .boxR{
   display: flex;
-  height: 100%;
+  height: 365px;
   min-width: 200px;
   flex-direction: column;
   background-color: rgb(69, 69, 69);
@@ -60,3 +61,17 @@
   box-sizing: border-box;
   align-items: center;
 }
+@media screen and (max-width: 767px) {
+  .boxC{
+    min-width: 170px;
+  }
+  .boxL{
+    min-width: 185px;
+    padding: 10px 0;
+  }
+  .boxR{
+    min-width: 185px;
+    padding: 10px 0;
+  }
+}
+

@@ -140,7 +140,7 @@ const defaultEnemies = {
       items: {
         head: 'dwarf_head', weapon: 'dwarf_weapon',
         body: 'dwarf_body', legs: 'dwarf_legs',
-        color: '#332929'
+        color: 'orange'
       },
       result: {
         coinWin: 8, coinLeave: -4, coinKill: 24,
@@ -237,7 +237,7 @@ const enemiesReducer = (state = initialState, action) => {
         })
       }
       case 'Start-fight-enemy':
-        debugger
+        
         return {
           enemies: state.enemies.map(enemy => {
             return enemy.id === action.id ?
@@ -246,7 +246,7 @@ const enemiesReducer = (state = initialState, action) => {
           })
         }
         case 'Finish-fight-enemy':
-          debugger
+          
           return {
             enemies: state.enemies.map(enemy => {
               return { ...enemy, isFight: false, } 

@@ -227,7 +227,7 @@ const battleReducer = (state = initialState, action) => {
         isFight: true,
       }
     case 'Leave':
-      debugger
+      
       return {
         ...state,
         isFight: false,
@@ -271,7 +271,7 @@ const battleReducer = (state = initialState, action) => {
         isFight: false,
       }
     case 'Save-local':
-      debugger
+      
       localStorage.setItem('battle', JSON.stringify(state))
       return {
         ...state

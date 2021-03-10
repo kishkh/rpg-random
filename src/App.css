@@ -20,3 +20,62 @@
 .hide-box{
   display: none;
 }
+.modalTurnScreen{
+  position: fixed;
+  flex-direction: column;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  z-index: 4;
+  color:white;
+  width: 100vw;
+  pointer-events: none;
+  height: 100vh;
+  background-color: black;
+}
+.modalTurnScreen img{
+  width: 30vw;
+  height: 30vw;
+}
+.modalTurnScreen span{
+  color: white;
+  font-size: 24px;
+  height: 30px;
+  font-weight: bold;
+}
+.modalTurnScreen p{
+  color: white;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+@media screen and (max-width: 1200px) {
+  .app-wrapper {
+    width: 1140px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .app-wrapper {
+    width: 960px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .app-wrapper {
+    width: 720px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .app-wrapper {
+    width: 574px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .app-wrapper {
+    display: none;
+  }
+  .modalTurnScreen{
+    display: flex;
+  }
+}

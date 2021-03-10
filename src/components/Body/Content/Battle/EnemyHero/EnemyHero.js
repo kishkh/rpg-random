@@ -5,7 +5,7 @@ import classes from './EnemyHero.module.css'
 
 const EnemyHero = ({enemy, playerDamage}) => {
   return <>
-    <div className={classes.row}>
+    <div className={classes.name}>
       <span>{enemy.name}</span>
     </div>
     <CharacterEnemy enemy={enemy} playerDamage={playerDamage}/>
