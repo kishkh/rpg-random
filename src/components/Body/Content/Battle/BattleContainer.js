@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import Battle from './Battle';
-import { attackCreator, battleAttackCreator, addBattleDataCreator, defenceCreator, battleDefenceCreator, leaveCreator, winCreator, executionAttackCreator, killCreator, executionDefenceCreator, isLeaveCreator, isWinCreator, startCreator, deadCreator, } from '../../../../redux/reducers/battle-reducer';
-import { withRouter } from 'react-router-dom';
+import { attackCreator, battleAttackCreator, addBattleDataCreator, defenceCreator, battleDefenceCreator, leaveCreator, winCreator, executionAttackCreator, killCreator, executionDefenceCreator, isLeaveCreator, isWinCreator, startCreator, deadCreator, removeLocalCreator, saveLocalCreator, } from '../../../../redux/reducers/battle-reducer';
 import { isHealingTrueCreator, takeItemCreator } from '../../../../redux/reducers/profile-reducer';
 import { compose } from 'redux';
-import withRedirect from '../../../../hoc/withRedirect';
+import { finishFightEnemyCreator } from '../../../../redux/reducers/enemy-reducer';
+import { withRedirectToProfile } from '../../../../hoc/withRedirectToProfile';
+import Battle from './Battle';
 
 
 
@@ -19,40 +19,82 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     start: (player, enemy) => {
-      dispatch(addBattleDataCreator(player, enemy))
-      dispatch(startCreator())
+      return new Promise((resolve, reject) => {
+        dispatch(addBattleDataCreator(player, enemy))
+          resolve()
+      }).then(() => {
+        dispatch(startCreator()) 
+      })
+      
+      
     },
     attack: (attack) => {
-      dispatch(attackCreator(attack))
-      dispatch(battleAttackCreator())
+      return new Promise((resolve, reject) => {
+        dispatch(attackCreator(attack))
+        dispatch(battleAttackCreator())
+          resolve()
+      }).then(() => {
+        dispatch(saveLocalCreator()) 
+      })
     },
-    defence: (defence, hp) => {
-      dispatch(defenceCreator(defence))
-      dispatch(battleDefenceCreator())
+    defence: (defence) => {
+      return new Promise((resolve, reject) => {
+        dispatch(defenceCreator(defence))
+        dispatch(battleDefenceCreator())
+          resolve()
+      }).then(() => {
+        dispatch(saveLocalCreator()) 
+      })
     },
     executionAttack: (attack) => {
-      dispatch(attackCreator(attack))
-      dispatch(executionAttackCreator())
+      return new Promise((resolve, reject) => {
+        dispatch(attackCreator(attack))
+        dispatch(executionAttackCreator())
+          resolve()
+      }).then(() => {
+        dispatch(saveLocalCreator()) 
+      })
     },
     executionDefence: (defence) => {
-      dispatch(defenceCreator(defence))
-      dispatch(executionDefenceCreator())
+      return new Promise((resolve, reject) => {
+        dispatch(defenceCreator(defence))
+        dispatch(executionDefenceCreator())
+          resolve()
+      }).then(() => {
+        dispatch(saveLocalCreator()) 
+      })
     },
     leave: () => {
-      dispatch(leaveCreator())
-      dispatch(isHealingTrueCreator())
+      return new Promise((resolve, reject) => {
+        dispatch(leaveCreator())
+          resolve()
+      }).then(() => {
+        dispatch(finishFightEnemyCreator()) 
+      })
     },
     win: () => {
-      dispatch(winCreator())
-      dispatch(isHealingTrueCreator())
+      return new Promise((resolve, reject) => {
+        dispatch(winCreator())
+          resolve()
+      }).then(() => {
+        dispatch(finishFightEnemyCreator())
+      })
     },
     kill: () => {
-      dispatch(killCreator())
-      dispatch(isHealingTrueCreator())
+      return new Promise((resolve, reject) => {
+        dispatch(killCreator())
+          resolve()
+      }).then(() => {
+        dispatch(finishFightEnemyCreator())
+      })
     },
     dead: () => {
-      localStorage.removeItem('enemies')
-      dispatch(deadCreator())
+      return new Promise((resolve, reject) => {
+        dispatch(deadCreator())
+          resolve()
+      }).then(() => {
+        dispatch(finishFightEnemyCreator())
+      })      
     },
     isLeave: () => {
       dispatch(isLeaveCreator())
@@ -70,6 +112,5 @@ const mapDispatchToProps = (dispatch) => {
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  withRouter,
-  withRedirect
+  withRedirectToProfile
 )(Battle)

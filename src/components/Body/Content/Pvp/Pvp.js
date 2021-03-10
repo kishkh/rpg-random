@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Pvp = () => {
+const Pvp = (props) => {
   return <div>
     This content will be available soon
   </div>

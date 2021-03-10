@@ -2,8 +2,8 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 import Header from './components/Header/Header';
-import Body from './components/Body/Body';
 import Footer from './components/Footer/Footer';
+import Body from './components/Body/Body';
 
 
 class App extends React.Component {
@@ -15,9 +15,7 @@ class App extends React.Component {
       }))
       localStorage.setItem('enemies', JSON.stringify(this.props.store.getState().enemies))
       localStorage.setItem('crypt', JSON.stringify(this.props.store.getState().crypt))
-      // window.store.getState().battle.isFight ?
-      //   localStorage.setItem('battle', JSON.stringify(this.props.store.getState().battle)) :
-      //   localStorage.removeItem('battle')
+      
     })
   }
   render() {

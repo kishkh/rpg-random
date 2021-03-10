@@ -6,6 +6,7 @@ import { emptyResultCreator } from '../../../../redux/reducers/battle-reducer'
 import { isEnemyDeadCreator, restartCreator, updateEnemyDataCreator } from '../../../../redux/reducers/enemy-reducer';
 import { updateCryptDataCreator } from '../../../../redux/reducers/crypt-reducer';
 import withRedirect from '../../../../hoc/withRedirect';
+import withRedirectBattle from '../../../../hoc/withRedirectBattle';
 import ProfileClassContainer from './ProfileClassContainer';
 
 const mapStateToProps = (state) => {
@@ -14,6 +15,7 @@ const mapStateToProps = (state) => {
     result: state.battle.resultFight,
     enemy: state.battle.enemy,
     player: state.battle.player,
+    isFight: state.battle.isFight,
     enemies: state.enemies.enemies
   }
 }
@@ -58,5 +60,6 @@ const mapDispatchToProps = (dispatch) => {
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  withRedirect
+  withRedirect,
+  withRedirectBattle
 )(ProfileClassContainer)
