@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/rpg-random/static/css/main.186d82db.chunk.css",
+    "main.js": "/rpg-random/static/js/main.0cd281cf.chunk.js",
+    "main.js.map": "/rpg-random/static/js/main.0cd281cf.chunk.js.map",
+    "runtime-main.js": "/rpg-random/static/js/runtime-main.7ff6855d.js",
+    "runtime-main.js.map": "/rpg-random/static/js/runtime-main.7ff6855d.js.map",
+    "static/js/2.6226278e.chunk.js": "/rpg-random/static/js/2.6226278e.chunk.js",
+    "static/js/2.6226278e.chunk.js.map": "/rpg-random/static/js/2.6226278e.chunk.js.map",
+    "static/js/3.2f0b2714.chunk.js": "/rpg-random/static/js/3.2f0b2714.chunk.js",
+    "static/js/3.2f0b2714.chunk.js.map": "/rpg-random/static/js/3.2f0b2714.chunk.js.map",
+    "index.html": "/rpg-random/index.html",
+    "static/css/main.186d82db.chunk.css.map": "/rpg-random/static/css/main.186d82db.chunk.css.map",
+    "static/js/2.6226278e.chunk.js.LICENSE.txt": "/rpg-random/static/js/2.6226278e.chunk.js.LICENSE.txt",
+    "static/media/profileIco.css": "/rpg-random/static/media/swords-emblem.8fd9e2dc.svg",
+    "static/media/buttons.css": "/rpg-random/static/media/x-mark.626855be.svg",
+    "static/media/basicItems.css": "/rpg-random/static/media/trousers.aedb66f4.svg",
+    "static/media/enemiesItems.css": "/rpg-random/static/media/wood-club.59f32913.svg",
+    "static/media/Links.module.css": "/rpg-random/static/media/stone-bust.46a28a60.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7ff6855d.js",
+    "static/js/2.6226278e.chunk.js",
+    "static/css/main.186d82db.chunk.css",
+    "static/js/main.0cd281cf.chunk.js"
+  ]
+}
