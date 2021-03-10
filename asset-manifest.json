@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/rpg-random/static/css/main.186d82db.chunk.css",
-    "main.js": "/rpg-random/static/js/main.0cd281cf.chunk.js",
-    "main.js.map": "/rpg-random/static/js/main.0cd281cf.chunk.js.map",
+    "main.js": "/rpg-random/static/js/main.8fc30b8e.chunk.js",
+    "main.js.map": "/rpg-random/static/js/main.8fc30b8e.chunk.js.map",
     "runtime-main.js": "/rpg-random/static/js/runtime-main.7ff6855d.js",
     "runtime-main.js.map": "/rpg-random/static/js/runtime-main.7ff6855d.js.map",
     "static/js/2.6226278e.chunk.js": "/rpg-random/static/js/2.6226278e.chunk.js",
@@ -22,6 +22,6 @@
     "static/js/runtime-main.7ff6855d.js",
     "static/js/2.6226278e.chunk.js",
     "static/css/main.186d82db.chunk.css",
-    "static/js/main.0cd281cf.chunk.js"
+    "static/js/main.8fc30b8e.chunk.js"
   ]
 }
