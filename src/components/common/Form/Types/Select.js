@@ -1,6 +1,8 @@
 import React from 'react';
-import { Field } from 'formik'
-import classes from '../Form.module.css'
+import { Field } from 'formik';
+
+import classes from '../Form.module.css';
+
 function Select(props) {
   const { label, name, options, ...rest } = props
   return (
@@ -15,7 +17,6 @@ function Select(props) {
           })
         }
       </Field>
-      
     </div>
   );
 }

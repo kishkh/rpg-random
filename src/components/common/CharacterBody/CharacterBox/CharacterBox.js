@@ -1,4 +1,5 @@
 import React from 'react';
+
 import classes from './CharacterBox.module.css'
 
 const CharacterBox = (props) => { 

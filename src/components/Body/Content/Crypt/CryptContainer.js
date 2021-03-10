@@ -1,10 +1,10 @@
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+
 import { sortByDateCreator, sortByExpCreator, SortByKillsCreator } from '../../../../redux/reducers/crypt-reducer';
 import withRedirectBattle from '../../../../hoc/withRedirectBattle';
 import withRedirect from '../../../../hoc/withRedirect';
 import Crypt from './Crypt';
-
 
 const mapStateToProps = (state) => {
   return {
@@ -26,6 +26,7 @@ const mapDispatchToProps = (dispatch) => {
     },
   }
 }
+
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   withRedirect,

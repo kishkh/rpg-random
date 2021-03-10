@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
-import { attackCreator, battleAttackCreator, addBattleDataCreator, defenceCreator, battleDefenceCreator, leaveCreator, winCreator, executionAttackCreator, killCreator, executionDefenceCreator, isLeaveCreator, isWinCreator, startCreator, deadCreator, removeLocalCreator, saveLocalCreator, } from '../../../../redux/reducers/battle-reducer';
-import { isHealingTrueCreator, takeItemCreator } from '../../../../redux/reducers/profile-reducer';
 import { compose } from 'redux';
+
+import { attackCreator, battleAttackCreator, addBattleDataCreator, defenceCreator, battleDefenceCreator, leaveCreator, winCreator, executionAttackCreator, killCreator, executionDefenceCreator, isLeaveCreator, isWinCreator, startCreator, deadCreator, saveLocalCreator, } from '../../../../redux/reducers/battle-reducer';
+import { takeItemCreator } from '../../../../redux/reducers/profile-reducer';
 import { finishFightEnemyCreator } from '../../../../redux/reducers/enemy-reducer';
 import { withRedirectToProfile } from '../../../../hoc/withRedirectToProfile';
 import Battle from './Battle';
-
-
 
 const mapStateToProps = (state) => {
   return {
@@ -21,61 +20,59 @@ const mapDispatchToProps = (dispatch) => {
     start: (player, enemy) => {
       return new Promise((resolve, reject) => {
         dispatch(addBattleDataCreator(player, enemy))
-          resolve()
+        resolve()
       }).then(() => {
-        dispatch(startCreator()) 
+        dispatch(startCreator())
       })
-      
-      
     },
     attack: (attack) => {
       return new Promise((resolve, reject) => {
         dispatch(attackCreator(attack))
         dispatch(battleAttackCreator())
-          resolve()
+        resolve()
       }).then(() => {
-        dispatch(saveLocalCreator()) 
+        dispatch(saveLocalCreator())
       })
     },
     defence: (defence) => {
       return new Promise((resolve, reject) => {
         dispatch(defenceCreator(defence))
         dispatch(battleDefenceCreator())
-          resolve()
+        resolve()
       }).then(() => {
-        dispatch(saveLocalCreator()) 
+        dispatch(saveLocalCreator())
       })
     },
     executionAttack: (attack) => {
       return new Promise((resolve, reject) => {
         dispatch(attackCreator(attack))
         dispatch(executionAttackCreator())
-          resolve()
+        resolve()
       }).then(() => {
-        dispatch(saveLocalCreator()) 
+        dispatch(saveLocalCreator())
       })
     },
     executionDefence: (defence) => {
       return new Promise((resolve, reject) => {
         dispatch(defenceCreator(defence))
         dispatch(executionDefenceCreator())
-          resolve()
+        resolve()
       }).then(() => {
-        dispatch(saveLocalCreator()) 
+        dispatch(saveLocalCreator())
       })
     },
     leave: () => {
       return new Promise((resolve, reject) => {
         dispatch(leaveCreator())
-          resolve()
+        resolve()
       }).then(() => {
-        dispatch(finishFightEnemyCreator()) 
+        dispatch(finishFightEnemyCreator())
       })
     },
     win: () => {
       return new Promise((resolve, reject) => {
         dispatch(winCreator())
-          resolve()
+        resolve()
       }).then(() => {
         dispatch(finishFightEnemyCreator())
       })
@@ -83,7 +80,7 @@ const mapDispatchToProps = (dispatch) => {
     kill: () => {
       return new Promise((resolve, reject) => {
         dispatch(killCreator())
-          resolve()
+        resolve()
       }).then(() => {
         dispatch(finishFightEnemyCreator())
       })
@@ -91,10 +88,10 @@ const mapDispatchToProps = (dispatch) => {
     dead: () => {
       return new Promise((resolve, reject) => {
         dispatch(deadCreator())
-          resolve()
+        resolve()
       }).then(() => {
         dispatch(finishFightEnemyCreator())
-      })      
+      })
     },
     isLeave: () => {
       dispatch(isLeaveCreator())
@@ -107,8 +104,6 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 }
-
-
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),

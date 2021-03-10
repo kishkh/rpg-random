@@ -5,7 +5,7 @@
   position: relative;
   border-radius: 5px;
   width: 80%;
-  background-color: rgb(66, 66, 66);
+  background-color: rgba(1, 40, 40, .3);
 }
 
 .name span{

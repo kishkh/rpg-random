@@ -1,23 +1,28 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
 import classes from './ProfileLink.module.css';
+
 class ProfileLink extends React.Component {
-  
+
   componentDidUpdate() {
-    this.props.profile.hp.current < this.props.profile.hp.full && !this.props.isFight && this.props.profile.isHealing && this.props.healPromise(this.props.profile.hp.current, this.props.profile.hp.full)
-      .then((healTrue) => {
-        this.props.isHealing(true)
-      })
-      .then(() => {
-        setTimeout(() => {
-          this.props.heal()
-          this.props.isHealingTrue()
+    this.props.profile.hp.current < this.props.profile.hp.full &&
+      !this.props.isFight &&
+      this.props.profile.isHealing &&
+      this.props.healPromise(this.props.profile.hp.current, this.props.profile.hp.full)
+        .then((healTrue) => {
+          this.props.isHealing(true)
+        })
+        .then(() => {
+          setTimeout(() => {
+            this.props.heal()
+            this.props.isHealingTrue()
+            this.props.isHealing(false)
+          }, 10000)
+        })
+        .catch((healFalse) => {
           this.props.isHealing(false)
-        }, 10000)
-      })
-      .catch((healFalse) => {
-        this.props.isHealing(false)
-      })
+        })
   }
 
   render() {
@@ -27,7 +32,6 @@ class ProfileLink extends React.Component {
     } else {
       heal = ''
     }
-
 
     return (
       <NavLink to='/profile' activeClassName={classes.active} className={classes.link}>

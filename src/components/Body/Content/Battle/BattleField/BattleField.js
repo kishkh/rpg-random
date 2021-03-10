@@ -22,10 +22,16 @@ const BattleField = (props) => {
   return (
     <div className={classes.container}>
       <div className={classes.textCombo}>
-        
-        <span className={classes.combo} style={{ color: 'green', fontSize: 20 + props.battle.player.series }}>+{Math.floor(props.battle.player.combo / 2)}</span>
-    
-        <span className={classes.combo} style={{ color: 'red', fontSize: 20 + props.battle.enemy.series }}>+{Math.floor(props.battle.enemy.combo / 2)}</span>
+        <span
+          className={classes.combo}
+          style={{ color: 'green', fontSize: 20 + props.battle.player.series }}
+        >+{Math.floor(props.battle.player.combo / 2)}
+        </span>
+        <span
+          className={classes.combo}
+          style={{ color: 'red', fontSize: 20 + props.battle.enemy.series }}
+        >+{Math.floor(props.battle.enemy.combo / 2)}
+        </span>
       </div>
       <div className={classes.text}>
         <span > Round: {props.battle.round} </span>

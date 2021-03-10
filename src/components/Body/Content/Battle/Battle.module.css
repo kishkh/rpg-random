@@ -2,8 +2,51 @@
   display: flex;
   position: relative;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  background: rgba(1,40,40,0.5);
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@keyframes berserk {
+  0% {
+    background: rgb(1,40,40);
+  background: radial-gradient(circle, rgba(1,40,40,0.5) 0%, rgba(1,40,40,0.5) 58%, rgba(65,1,1,0.8) 96%, rgba(80,0,0,0.7) 100%);
+
+  }
+  12% {
+    background: rgb(1,40,40);
+    background: radial-gradient(circle, rgba(1,40,40,0.5) 0%, rgba(1,40,40,0.5) 48%, rgba(65,1,1,0.8) 92%, rgba(80,0,0,0.7) 100%);
+  }
+  27% {
+    background: rgb(1,40,40);
+  background: radial-gradient(circle, rgba(1,40,40,0.5) 0%, rgba(1,40,40,0.5) 54%, rgba(65,1,1,0.8) 96%, rgba(80,0,0,0.7) 100%);
+    
+  }
+  39% {
+    background: rgb(1,40,40);
+background: radial-gradient(circle, rgba(1,40,40,0.5) 0%, rgba(1,40,40,0.5) 48%, rgba(65,1,1,0.8) 92%, rgba(80,0,0,0.7) 100%);
+  }
+  51% {
+    background: rgb(1,40,40);
+  background: radial-gradient(circle, rgba(1,40,40,0.5) 0%, rgba(1,40,40,0.5) 58%, rgba(65,1,1,0.8) 96%, rgba(80,0,0,0.7) 100%); 
+
+  }
+  100% {
+    background: rgb(1,40,40);
+  background: radial-gradient(circle, rgba(1,40,40,0.5) 0%, rgba(1,40,40,0.5) 58%, rgba(65,1,1,0.8) 96%, rgba(80,0,0,0.7) 100%);
+  }
+}
+.berserk{
+  background: rgb(1,40,40);
+  background: radial-gradient(circle, rgba(1,40,40,0.5) 0%, rgba(1,40,40,0.5) 58%, rgba(65,1,1,0.8) 96%, rgba(80,0,0,0.7) 100%);
+  animation-duration: 1.5s;
+  animation-name: berserk;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.half{
+  background: rgb(1,40,40);
+  background: radial-gradient(circle, rgba(1,40,40,0.5) 0%, rgba(1,40,40,0.5) 65%, rgba(78, 68, 8, 0.8) 96%, rgba(78, 68, 8, 0.8) 100%);
 }
 .btn_container{
   width: 100%;
@@ -15,7 +58,6 @@
 .wrapper{
   display: flex;
   flex-direction: column;
-
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -26,10 +68,11 @@
   height: 365px;
   min-width: 200px;
   flex-direction: column;
-  background-color: rgb(69, 69, 69);
+  
   border: solid 4px orange;
   border-radius: 5px 0 0 5px;
   border-right-style: none;
+  border-left-style: none;
   padding: 10px;
   box-sizing: border-box;
   align-items: center;
@@ -40,7 +83,6 @@
   min-width: 200px;
   flex-direction: column;
   color: orange;
-  background-color: rgb(69, 69, 69);
   border: solid 4px orange;
   border-right-style: none;
   border-left-style: none;
@@ -53,10 +95,10 @@
   height: 365px;
   min-width: 200px;
   flex-direction: column;
-  background-color: rgb(69, 69, 69);
   border: solid 4px orange;
   border-radius: 0 5px 5px 0;
   border-left-style: none;
+  border-right-style: none;
   padding: 10px;
   box-sizing: border-box;
   align-items: center;
@@ -67,10 +109,12 @@
   }
   .boxL{
     min-width: 185px;
+    border-left-style: none;
     padding: 10px 0;
   }
   .boxR{
     min-width: 185px;
+    border-right-style: none;
     padding: 10px 0;
   }
 }

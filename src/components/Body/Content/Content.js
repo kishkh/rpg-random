@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+
 import classes from './Content.module.css';
 import ProfileContainer from './Profile/ProfileContainer';
 import BattleContainer from './Battle/BattleContainer';

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+
 import ItemBox from '../ItemBox/ItemBox';
 
 class FormKill extends Component {
@@ -28,7 +28,6 @@ class FormKill extends Component {
     return (
       <form >
         <div className='radio'>
-
           <input
             type='radio'
             name='head'

@@ -21,8 +21,8 @@ const Profile = ({ profile, ...props }) => {
         <div className={classes.box}>
           <CharacterUser player={profile} />
           <div className={classes.bigBtnContainer}>
-            <button 
-              onClick={props.toggleInventory} 
+            <button
+              onClick={props.toggleInventory}
               className={profile.inventoryToggle ? classes.activeBtn : classes.bigBtn}>
               Inventory
           </button>
@@ -44,7 +44,11 @@ const Profile = ({ profile, ...props }) => {
             {
               profile.skill > 0 &&
               <div className={classes.btn_container}>
-                <button disabled={profile.damage.min >= profile.damage.max} onClick={props.skillUpMinDamage}>+1min</button>
+                <button
+                  disabled={profile.damage.min >= profile.damage.max}
+                  onClick={props.skillUpMinDamage}
+                >+1min
+                </button>
                 <button onClick={props.skillUpMaxDamage}>+1max</button>
               </div>
             }

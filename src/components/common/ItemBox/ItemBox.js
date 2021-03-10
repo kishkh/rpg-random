@@ -1,6 +1,8 @@
 import React from 'react';
-import classes from './ItemBox.module.css'
-import '../../../assets/classes/basicItems.css'
+
+import '../../../assets/classes/basicItems.css';
+import classes from './ItemBox.module.css';
+
 const ItemBox = (props) => {
   return (
     <div className={props.active ? `${classes.box} ${classes.active}` : classes.box}>

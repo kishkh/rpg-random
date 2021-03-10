@@ -1,9 +1,11 @@
 import React from 'react';
-import Links from './Links/Links';
+
 import '../../App.css';
+import classes from './Header.module.css'
+import Links from './Links/Links';
 
 const Header = () => {
-  return <div className='container'>
+  return <div className={classes.container}>
     <Links />
   </div>
 }
