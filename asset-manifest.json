@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/rpg-random/static/css/main.10273e65.chunk.css",
-    "main.js": "/rpg-random/static/js/main.b97a541f.chunk.js",
-    "main.js.map": "/rpg-random/static/js/main.b97a541f.chunk.js.map",
+    "main.css": "/rpg-random/static/css/main.8b7415f4.chunk.css",
+    "main.js": "/rpg-random/static/js/main.88c8ec59.chunk.js",
+    "main.js.map": "/rpg-random/static/js/main.88c8ec59.chunk.js.map",
     "runtime-main.js": "/rpg-random/static/js/runtime-main.31cfa052.js",
     "runtime-main.js.map": "/rpg-random/static/js/runtime-main.31cfa052.js.map",
-    "static/js/2.98785954.chunk.js": "/rpg-random/static/js/2.98785954.chunk.js",
-    "static/js/2.98785954.chunk.js.map": "/rpg-random/static/js/2.98785954.chunk.js.map",
+    "static/js/2.711de57a.chunk.js": "/rpg-random/static/js/2.711de57a.chunk.js",
+    "static/js/2.711de57a.chunk.js.map": "/rpg-random/static/js/2.711de57a.chunk.js.map",
     "static/js/3.75e69ae2.chunk.js": "/rpg-random/static/js/3.75e69ae2.chunk.js",
     "static/js/3.75e69ae2.chunk.js.map": "/rpg-random/static/js/3.75e69ae2.chunk.js.map",
     "index.html": "/rpg-random/index.html",
-    "static/css/main.10273e65.chunk.css.map": "/rpg-random/static/css/main.10273e65.chunk.css.map",
-    "static/js/2.98785954.chunk.js.LICENSE.txt": "/rpg-random/static/js/2.98785954.chunk.js.LICENSE.txt",
+    "static/css/main.8b7415f4.chunk.css.map": "/rpg-random/static/css/main.8b7415f4.chunk.css.map",
+    "static/js/2.711de57a.chunk.js.LICENSE.txt": "/rpg-random/static/js/2.711de57a.chunk.js.LICENSE.txt",
     "static/media/profileIco.css": "/rpg-random/static/media/swords-emblem.8fd9e2dc.svg",
     "static/media/buttons.css": "/rpg-random/static/media/x-mark.626855be.svg",
     "static/media/basicItems.css": "/rpg-random/static/media/trousers.aedb66f4.svg",
@@ -20,8 +20,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.31cfa052.js",
-    "static/js/2.98785954.chunk.js",
-    "static/css/main.10273e65.chunk.css",
-    "static/js/main.b97a541f.chunk.js"
+    "static/js/2.711de57a.chunk.js",
+    "static/css/main.8b7415f4.chunk.css",
+    "static/js/main.88c8ec59.chunk.js"
   ]
 }
