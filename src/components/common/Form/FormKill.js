@@ -15,7 +15,6 @@ class FormKill extends Component {
 
 
   formSubmit(e) {
-    debugger
     this.props.takeItem(this.state.type, this.state.value)
     this.props.kill()
   }

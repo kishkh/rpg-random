@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Body from './components/Body/Body';
+import ico from './assets/images/icon8.png'
 
 
 class App extends React.Component {
@@ -21,6 +22,11 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
+        <div className='modalTurnScreen'>
+          <img src={ico} alt='icon'/>
+          <span>Please rotate your device </span>
+          <p>We support landscape mode only</p>
+        </div>
         <div className='app-wrapper'>
           <Header />
           <Body />
