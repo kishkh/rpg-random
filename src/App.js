@@ -1,10 +1,11 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter } from 'react-router-dom';
+
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Body from './components/Body/Body';
-import ico from './assets/images/icon8.png'
+import ico from './assets/images/icon8.png';
+import './App.css';
 
 
 class App extends React.Component {
@@ -16,7 +17,6 @@ class App extends React.Component {
       }))
       localStorage.setItem('enemies', JSON.stringify(this.props.store.getState().enemies))
       localStorage.setItem('crypt', JSON.stringify(this.props.store.getState().crypt))
-      
     })
   }
   render() {

@@ -1,11 +1,13 @@
 import React from 'react';
-import { Formik, Form } from 'formik'
+import { Formik, Form } from 'formik';
+
 import FormControl from './FormControl';
-function FormInventory({profile, changeItems, ...props}) {
+
+function FormInventory({ profile, changeItems, ...props }) {
   const fillInventory = (type) => {
     return type.map(item => (
       {
-        key: item.toUpperCase(), 
+        key: item.toUpperCase(),
         value: item
       }
     ))
@@ -14,7 +16,7 @@ function FormInventory({profile, changeItems, ...props}) {
   const bodyOptions = fillInventory(profile.inventory.body)
   const legsOptions = fillInventory(profile.inventory.legs)
   const weaponOptions = fillInventory(profile.inventory.weapon)
-  
+
   const initialValues = {
     color: profile.items.color,
     headOption: profile.items.head,
@@ -24,12 +26,12 @@ function FormInventory({profile, changeItems, ...props}) {
   }
 
   const onSubmit = (values) => {
-    changeItems( 
+    changeItems(
       {
-        head: values.headOption, 
-        body: values.bodyOption, 
+        head: values.headOption,
+        body: values.bodyOption,
         weapon: values.weaponOption,
-        legs: values.legsOption, 
+        legs: values.legsOption,
         color: profile.items.color
       }
     )
@@ -48,28 +50,28 @@ function FormInventory({profile, changeItems, ...props}) {
             control='radio'
             label='Head'
             name='headOption'
-            options={headOptions}  
+            options={headOptions}
           />
           <FormControl
             formik={formik}
             control='radio'
             label='Body'
             name='bodyOption'
-            options={bodyOptions}  
+            options={bodyOptions}
           />
           <FormControl
             formik={formik}
             control='radio'
             label='Legs'
             name='legsOption'
-            options={legsOptions}  
+            options={legsOptions}
           />
           <FormControl
             formik={formik}
             control='radio'
             label='weapon'
             name='weaponOption'
-            options={weaponOptions}  
+            options={weaponOptions}
           />
           <button className={props.bigBtn} type='submit' >Change</button>
         </Form>)

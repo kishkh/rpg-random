@@ -1,10 +1,10 @@
 import React from 'react';
+
 import CharacterUser from '../../../common/CharacterBody/CharacterUser';
 import InfoString from '../../../common/InfoString/InfoString';
-import classes from './Crypt.module.css'
+import classes from './Crypt.module.css';
 
 const Crypt = ({ heroes, ...props }) => {
-  
   const heroesList = heroes.length > 0 ? heroes.map((hero, i) => {
     let enemies = hero.stats.killed.length > 0 ?
     hero.stats.killed.map((enemy, i) => {

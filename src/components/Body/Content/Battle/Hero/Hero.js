@@ -1,4 +1,5 @@
 import React from 'react';
+
 import CharacterUser from '../../../../common/CharacterBody/CharacterUser';
 import InfoString from '../../../../common/InfoString/InfoString';
 import classes from './Hero.module.css'

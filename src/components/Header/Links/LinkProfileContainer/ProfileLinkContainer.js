@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+
 import { healCreator, isHealingClassCreator, isHealingFalseCreator, isHealingTrueCreator } from '../../../../redux/reducers/profile-reducer';
 import ProfileLink from './ProfileLink';
 

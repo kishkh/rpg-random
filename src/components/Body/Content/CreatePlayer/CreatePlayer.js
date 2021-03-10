@@ -1,10 +1,9 @@
 import React from 'react';
-import classes from './CreatePlayer.module.css'
+
 import FormCreateHero from '../../../common/Form/FormCreateHero';
+import classes from './CreatePlayer.module.css';
+
 const CreatePlayer = (props) => {
-
-  
-
   return (
     <div className={classes.container}>
       <div className={classes.box}>
@@ -12,9 +11,6 @@ const CreatePlayer = (props) => {
       </div>
     </div>
   )
-
-
 }
-
 
 export default CreatePlayer;

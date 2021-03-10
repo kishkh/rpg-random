@@ -1,9 +1,10 @@
 import React from 'react';
+
+import classes from './Body.module.css';
 import Content from './Content/Content';
-import '../../App.css';
 
 const Body = () => {
-  return <div className='container'>
+  return <div className={classes.container}>
     <Content />
   </div>
 }

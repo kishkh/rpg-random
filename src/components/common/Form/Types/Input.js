@@ -1,6 +1,8 @@
 import React from 'react';
-import { Field, ErrorMessage } from 'formik'
-import classes from '../Form.module.css'
+import { Field, ErrorMessage } from 'formik';
+
+import classes from '../Form.module.css';
+
 function Input(props) {
   const { label, name, type, ...rest } = props
   return (

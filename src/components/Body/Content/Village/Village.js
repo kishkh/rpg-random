@@ -1,8 +1,10 @@
 import React from 'react';
 
+import classes from './Village.module.css';
+
 const Village = () => {
-  return <div>
-    <div>Shop</div>
+  return <div className={classes.container}>
+    <div>This content will be available soon</div>
   </div>
 }
 

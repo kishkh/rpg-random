@@ -3,10 +3,9 @@
   font-family: Asap, sans-serif;
   margin: 0 auto;
   box-sizing: border-box;
-  min-height: 100%;
-  background-color: rgb(88, 88, 88);
+  min-height: 100vh;
   display: grid;
-  grid-template: minmax(100px, auto) 1fr minmax(70px, auto) / 1fr;
+  grid-template: 100px auto 100px / 1fr;
   grid-template-areas: 
     'header'
     'main'
@@ -58,20 +57,20 @@
 }
 @media screen and (max-width: 1199px) {
   .app-wrapper {
-    width: 960px;
+    width: 100%;
   }
 }
 @media screen and (max-width: 991px) {
   .app-wrapper {
-    width: 720px;
+    width: 100%;
   }
 }
 @media screen and (max-width: 767px) {
   .app-wrapper {
-    width: 574px;
+    width: 100%;
   }
 }
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 560px) {
   .app-wrapper {
     display: none;
   }

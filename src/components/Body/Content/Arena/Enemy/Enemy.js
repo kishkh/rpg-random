@@ -37,7 +37,7 @@ const Enemy = ({ enemy, ...props }) => {
         />
         <div className={classes.btnContainer}>
           <NavLink to='/battle'>
-            <button onClick={() => {props.startFightEnemy(enemy.id)}}>Fight</button>
+            <button onClick={() => { props.startFightEnemy(enemy.id) }}>Fight</button>
           </NavLink>
         </div>
       </div>

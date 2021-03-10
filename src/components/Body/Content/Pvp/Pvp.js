@@ -1,10 +1,11 @@
 import React from 'react';
 
+import classes from './Pvp.module.css';
+
 const Pvp = (props) => {
-  return <div>
+  return <div className={classes.container}>
     This content will be available soon
-  </div>
-  
+  </div> 
 }
 
 export default Pvp;

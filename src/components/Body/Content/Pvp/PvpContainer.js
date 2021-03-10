@@ -1,5 +1,6 @@
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+
 import withRedirectBattle from '../../../../hoc/withRedirectBattle';
 import withRedirect from '../../../../hoc/withRedirect';
 import Pvp from './Pvp';

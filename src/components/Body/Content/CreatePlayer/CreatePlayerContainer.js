@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { compose } from "redux";
+
 import { withRedirectToProfile } from "../../../../hoc/withRedirectToProfile";
 import { createHeroCreator } from "../../../../redux/reducers/profile-reducer";
 import CreatePlayer from "./CreatePlayer";
@@ -17,10 +18,6 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 }
-
-
-
-
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
