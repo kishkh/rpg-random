@@ -8,7 +8,7 @@ const Arena = (props) => {
     
     return enemy.death === false 
   })
-  enemies = enemies.map(enemy => <Enemy key = {enemy.id}enemy={enemy} />)
+  enemies = enemies.map(enemy => <Enemy key = {enemy.id}enemy={enemy} startFightEnemy={props.startFightEnemy} />)
   return <div className={classes.container}>
     {enemies.slice(0, 4)}
   </div>

@@ -1,4 +1,4 @@
-const initialState = {
+const initialState = JSON.parse(localStorage.getItem('battle')) || {
   player: {
     name: 'user',
     lvl: 0,
@@ -227,6 +227,7 @@ const battleReducer = (state = initialState, action) => {
         isFight: true,
       }
     case 'Leave':
+      debugger
       return {
         ...state,
         isFight: false,
@@ -269,7 +270,15 @@ const battleReducer = (state = initialState, action) => {
         ...state,
         isFight: false,
       }
+    case 'Save-local':
+      debugger
+      localStorage.setItem('battle', JSON.stringify(state))
+      return {
+        ...state
+      }
+
     case 'Empty-result':
+      localStorage.removeItem('battle')
       return initialState
     case 'Is-leave':
       return { ...state, modalLeave: !state.modalLeave }
@@ -325,5 +334,8 @@ export const isLeaveCreator = () => {
 }
 export const isWinCreator = () => {
   return { type: 'Is-win' }
+}
+export const saveLocalCreator = () => {
+  return { type: 'Save-local' }
 }
 export default battleReducer;

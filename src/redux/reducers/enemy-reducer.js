@@ -15,7 +15,8 @@ const defaultEnemies = {
         coinWin: 1, coinLeave: -1, coinKill: 4,
         expWin: 30, expLeave: 3, expKill: 90,
       },
-      death: false
+      death: false,
+      isFight: false,
     },
 
 
@@ -34,7 +35,8 @@ const defaultEnemies = {
         coinWin: 2, coinLeave: -1, coinKill: 6,
         expWin: 40, expLeave: 4, expKill: 120,
       },
-      death: false
+      death: false,
+      isFight: false,
     },
 
     {
@@ -52,7 +54,8 @@ const defaultEnemies = {
         coinWin: 3, coinLeave: -2, coinKill: 9,
         expWin: 60, expLeave: 6, expKill: 180,
       },
-      death: false
+      death: false,
+      isFight: false,
     },
     {
       name: 'GrandF',
@@ -69,7 +72,8 @@ const defaultEnemies = {
         coinWin: 4, coinLeave: -2, coinKill: 12,
         expWin: 75, expLeave: 8, expKill: 225,
       },
-      death: false
+      death: false,
+      isFight: false,
     },
     {
       name: 'Barbarian',
@@ -86,7 +90,8 @@ const defaultEnemies = {
         coinWin: 5, coinLeave: -3, coinKill: 15,
         expWin: 70, expLeave: 7, expKill: 210,
       },
-      death: false
+      death: false,
+      isFight: false,
     },
     {
       name: 'Pirate',
@@ -103,7 +108,8 @@ const defaultEnemies = {
         coinWin: 6, coinLeave: -3, coinKill: 18,
         expWin: 90, expLeave: 9, expKill: 270,
       },
-      death: false
+      death: false,
+      isFight: false,
     },
     {
 
@@ -121,7 +127,8 @@ const defaultEnemies = {
         coinWin: 7, coinLeave: -4, coinKill: 21,
         expWin: 60, expLeave: 6, expKill: 180,
       },
-      death: false
+      death: false,
+      isFight: false,
     },
 
     {
@@ -139,7 +146,8 @@ const defaultEnemies = {
         coinWin: 8, coinLeave: -4, coinKill: 24,
         expWin: 60, expLeave: 6, expKill: 180,
       },
-      death: false
+      death: false,
+      isFight: false,
     },
     {
       name: 'Executor',
@@ -156,7 +164,8 @@ const defaultEnemies = {
         coinWin: 9, coinLeave: -5, coinKill: 27,
         expWin: 60, expLeave: 6, expKill: 180,
       },
-      death: false
+      death: false,
+      isFight: false,
     },
     {
       name: 'Goblin',
@@ -173,7 +182,8 @@ const defaultEnemies = {
         coinWin: 10, coinLeave: -5, coinKill: 30,
         expWin: 30, expLeave: 5, expKill: 90,
       },
-      death: false
+      death: false,
+      isFight: false,
     },
     {
       name: 'Cop',
@@ -190,11 +200,9 @@ const defaultEnemies = {
         coinWin: 11, coinLeave: -6, coinKill: 33,
         expWin: 30, expLeave: 5, expKill: 90,
       },
-      death: false
+      death: false,
+      isFight: false,
     },
-
-
-
   ]
 }
 
@@ -203,6 +211,7 @@ const enemiesReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'Update-enemy-data':
       return {
+        
         enemies: state.enemies.map(enemy => {
           return enemy.id === action.id ?
             {
@@ -223,16 +232,38 @@ const enemiesReducer = (state = initialState, action) => {
       return {
         enemies: state.enemies.map(enemy => {
           return enemy.id === action.id ?
-            { ...enemy, death: action.death } :
+            { ...enemy, death: action.death, isFight: false, } :
             enemy
         })
       }
+      case 'Start-fight-enemy':
+        debugger
+        return {
+          enemies: state.enemies.map(enemy => {
+            return enemy.id === action.id ?
+              { ...enemy, isFight: true, } :
+              enemy
+          })
+        }
+        case 'Finish-fight-enemy':
+          debugger
+          return {
+            enemies: state.enemies.map(enemy => {
+              return { ...enemy, isFight: false, } 
+            })
+          }
     case 'Restart':
       return defaultEnemies
     default:
       break;
   }
   return state
+}
+export const startFightEnemyCreator = (id) => {
+  return { type: 'Start-fight-enemy', id }
+}
+export const finishFightEnemyCreator = () => {
+  return { type: 'Finish-fight-enemy' }
 }
 export const updateEnemyDataCreator = (data, id) => {
   return { type: 'Update-enemy-data', data, id }

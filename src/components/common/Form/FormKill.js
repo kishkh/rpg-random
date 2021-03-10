@@ -15,6 +15,7 @@ class FormKill extends Component {
 
 
   formSubmit(e) {
+    debugger
     this.props.takeItem(this.state.type, this.state.value)
     this.props.kill()
   }
@@ -102,13 +103,11 @@ class FormKill extends Component {
 
 
         <div >
-          
-          <NavLink to='/profile'>
+
+
           <button onClick={this.formSubmit} type='button' disabled={!this.state.value} className={this.props.ico} >
           </button>
-        
-        </NavLink>
-         
+
         </div>
 
       </form>

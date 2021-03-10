@@ -2,7 +2,9 @@ import React from 'react'; import Profile from './Profile';
 
 class ProfileClassContainer extends React.Component {
   componentDidMount() {
-    this.props.updateData(this.props.result, this.props.enemy.id)
+    if(!this.props.isFight){
+      this.props.updateData(this.props.result, this.props.enemy.id)
+    }
     this.props.enemy.death && this.props.isEnemyDead(
       this.props.enemy.id, 
       this.props.enemy.death,
