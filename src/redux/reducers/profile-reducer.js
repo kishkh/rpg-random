@@ -157,6 +157,7 @@ const profileReducer = (state = initialState, action) => {
       }
       return {
         ...state,
+        inventoryToggle: true,
         inventory: {
           ...state.inventory,
           ...artefact
@@ -247,5 +248,27 @@ export const addKillEnemyCreator = (head) => {
   return { type: 'Add-kill-enemy', head }
 }
 
+export const healUpThunkCreator = (hpMin, hpMax) => {
+  return (dispatch) => {
+    dispatch(isHealingFalseCreator())
+    new Promise((resolve, reject) => {
+      if (hpMin < hpMax) { 
+        resolve()
+      } else {
+        reject()
+      }
+    }).then(() => {
+      dispatch(isHealingClassCreator(true))
+    }).then(() => {
+      setTimeout(() => {
+        dispatch(healCreator())
+        dispatch(isHealingTrueCreator())
+        dispatch(isHealingClassCreator(false))
+      }, 10000)
+    }).catch(() => {
+      dispatch(isHealingClassCreator(false))
+    })
+  }
+}
 
 export default profileReducer;

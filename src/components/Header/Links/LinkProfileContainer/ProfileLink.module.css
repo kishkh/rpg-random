@@ -31,8 +31,7 @@
 .heal{
   width: 20px;
   height: 20px;
-  animation-delay: .04s;
-  animation-duration: 10.099s;
+  animation-duration: 10.079s;
   animation-name: heal;
   animation-iteration-count: infinite;
   animation-timing-function: linear;

@@ -9,20 +9,7 @@ class ProfileLink extends React.Component {
     this.props.profile.hp.current < this.props.profile.hp.full &&
       !this.props.isFight &&
       this.props.profile.isHealing &&
-      this.props.healPromise(this.props.profile.hp.current, this.props.profile.hp.full)
-        .then((healTrue) => {
-          this.props.isHealing(true)
-        })
-        .then(() => {
-          setTimeout(() => {
-            this.props.heal()
-            this.props.isHealingTrue()
-            this.props.isHealing(false)
-          }, 10000)
-        })
-        .catch((healFalse) => {
-          this.props.isHealing(false)
-        })
+      this.props.healUp(this.props.profile.hp.current, this.props.profile.hp.full)
   }
 
   render() {
