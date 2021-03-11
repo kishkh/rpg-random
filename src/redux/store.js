@@ -1,4 +1,5 @@
-import {createStore, combineReducers} from 'redux';
+import {createStore, combineReducers, applyMiddleware} from 'redux';
+import thunkMiddleware from 'redux-thunk';
 import enemiesReducer from './reducers/enemy-reducer';
 import profileReducer from './reducers/profile-reducer';
 import villageReducer from './reducers/village-reducer';
@@ -15,7 +16,7 @@ const reducers = combineReducers(
   }
 )
 
-const store = createStore(reducers);
+const store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
 window.store = store
  
