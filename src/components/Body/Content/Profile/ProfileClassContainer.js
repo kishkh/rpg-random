@@ -1,14 +1,10 @@
-import React from 'react';
-
-import Profile from './Profile';
+import React from 'react'; import Profile from './Profile';
 
 class ProfileClassContainer extends React.Component {
   componentDidMount() {
-    if (!this.props.isFight) {
-      this.props.updateData(this.props.result, this.props.enemy.id)
-    }
+    !this.props.isFight && this.props.updateData(this.props.result, this.props.enemy.id)
     this.props.enemy.death && this.props.isEnemyDead(
-      this.props.enemy.id,
+      this.props.enemy.id, 
       this.props.enemy.death,
       this.props.enemy.items.head
     )
@@ -20,8 +16,9 @@ class ProfileClassContainer extends React.Component {
 
   componentDidUpdate() {
     this.props.profile.exp.current >= this.props.profile.exp.nextLvl &&
-      this.props.lvlUp(this.props.profile.timers)
+      this.props.lvlUp()
   }
+
 
   render() {
     return (

@@ -3,7 +3,7 @@ const defaultProfile = {
   lvl: 1,
   exp: { current: 0, nextLvl: 100 },
   nextLvlArr: [
-    100, 250, 400, 600, 800, 1100, 1400, 1800, 2200, 2700, 3200, 3800, 4400, 5100
+    100, 250, 400, 600, 800, 1100, 1400, 1800, 2200, 2700, 3200, 3800, 4400, 5100, 5800, 6600, 7400, 8300, 9200
   ],
   damage: { min: 2, max: 4 },
   hp: { current: 30, full: 30 },
@@ -23,7 +23,7 @@ const defaultProfile = {
   isHealing: true,
   isHealingClass: false,
   created: false,
-  date: 0,
+  date: null,
 }
 const initialState = JSON.parse(localStorage.getItem('profile')) || defaultProfile
 const profileReducer = (state = initialState, action) => {
@@ -87,31 +87,7 @@ const profileReducer = (state = initialState, action) => {
           coins: state.stats.coins + action.data.coins,
         },
       }
-    case 'Heal':
-      return {
-        ...state,
-        hp: {
-          ...state.hp,
-          current: state.hp.current >= state.hp.full ?
-            state.hp.full : state.hp.current + 1,
 
-        }
-      }
-    case 'Is-healing-true':
-      return {
-        ...state,
-        isHealing: true
-      }
-    case 'Is-healing-class':
-      return {
-        ...state,
-        isHealingClass: action.result
-      }
-    case 'Is-healing-false':
-      return {
-        ...state,
-        isHealing: false
-      }
     case 'Take-item':
 
       let artefact;
@@ -197,6 +173,31 @@ const profileReducer = (state = initialState, action) => {
         ...state,
         inventoryToggle: !state.inventoryToggle
       }
+    case 'Heal':
+      return {
+        ...state,
+        hp: {
+          ...state.hp,
+          current: state.hp.current >= state.hp.full ?
+            state.hp.full : state.hp.current + 1,
+
+        }
+      }
+    case 'Is-healing-true':
+      return {
+        ...state,
+        isHealing: true
+      }
+    case 'Is-healing-class':
+      return {
+        ...state,
+        isHealingClass: action.result
+      }
+    case 'Is-healing-false':
+      return {
+        ...state,
+        isHealing: false
+      }
     default:
       return state;
   }
@@ -217,18 +218,6 @@ export const toggleInventoryCreator = () => {
 export const isDeadCreator = () => {
   return { type: 'Is-dead' }
 }
-export const healCreator = () => {
-  return { type: 'Heal' }
-}
-export const isHealingTrueCreator = () => {
-  return { type: 'Is-healing-true' }
-}
-export const isHealingFalseCreator = () => {
-  return { type: 'Is-healing-false' }
-}
-export const isHealingClassCreator = (result) => {
-  return { type: 'Is-healing-class', result }
-}
 export const lvlUpCreator = () => {
   return { type: 'Lvl-up' }
 }
@@ -248,11 +237,23 @@ export const addKillEnemyCreator = (head) => {
   return { type: 'Add-kill-enemy', head }
 }
 
+const healCreator = () => {
+  return { type: 'Heal' }
+}
+const isHealingTrueCreator = () => {
+  return { type: 'Is-healing-true' }
+}
+const isHealingFalseCreator = () => {
+  return { type: 'Is-healing-false' }
+}
+const isHealingClassCreator = (result) => {
+  return { type: 'Is-healing-class', result }
+}
 export const healUpThunkCreator = (hpMin, hpMax) => {
   return (dispatch) => {
     dispatch(isHealingFalseCreator())
     new Promise((resolve, reject) => {
-      if (hpMin < hpMax) { 
+      if (hpMin < hpMax) {
         resolve()
       } else {
         reject()
@@ -270,5 +271,6 @@ export const healUpThunkCreator = (hpMin, hpMax) => {
     })
   }
 }
+
 
 export default profileReducer;
