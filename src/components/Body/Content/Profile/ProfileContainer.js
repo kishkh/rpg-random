@@ -21,7 +21,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    lvlUp: (timers) => {
+    lvlUp: () => {
       dispatch(lvlUpCreator())
     },
     skillUpHP: () => {

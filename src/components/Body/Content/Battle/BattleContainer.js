@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { attackCreator, battleAttackCreator, addBattleDataCreator, defenceCreator, battleDefenceCreator, leaveCreator, winCreator, executionAttackCreator, killCreator, executionDefenceCreator, isLeaveCreator, isWinCreator, startCreator, deadCreator, saveLocalCreator, } from '../../../../redux/reducers/battle-reducer';
+import { leaveCreator, winCreator, killCreator, isLeaveCreator, isWinCreator, deadCreator, startThunkCreator, attackThunkCreator, defenceThunkCreator, executionDefenceThunkCreator, executionAttackThunkCreator, finishFightThunkCreator } from '../../../../redux/reducers/battle-reducer';
 import { takeItemCreator } from '../../../../redux/reducers/profile-reducer';
-import { finishFightEnemyCreator } from '../../../../redux/reducers/enemy-reducer';
 import { withRedirectToProfile } from '../../../../hoc/withRedirectToProfile';
 import Battle from './Battle';
 
@@ -18,80 +17,31 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     start: (player, enemy) => {
-      return new Promise((resolve, reject) => {
-        dispatch(addBattleDataCreator(player, enemy))
-        resolve()
-      }).then(() => {
-        dispatch(startCreator())
-      })
+      dispatch(startThunkCreator(player, enemy))
     },
     attack: (attack) => {
-      return new Promise((resolve, reject) => {
-        dispatch(attackCreator(attack))
-        dispatch(battleAttackCreator())
-        resolve()
-      }).then(() => {
-        dispatch(saveLocalCreator())
-      })
+      dispatch(attackThunkCreator(attack))
     },
     defence: (defence) => {
-      return new Promise((resolve, reject) => {
-        dispatch(defenceCreator(defence))
-        dispatch(battleDefenceCreator())
-        resolve()
-      }).then(() => {
-        dispatch(saveLocalCreator())
-      })
+      dispatch(defenceThunkCreator(defence))
     },
     executionAttack: (attack) => {
-      return new Promise((resolve, reject) => {
-        dispatch(attackCreator(attack))
-        dispatch(executionAttackCreator())
-        resolve()
-      }).then(() => {
-        dispatch(saveLocalCreator())
-      })
+      dispatch(executionAttackThunkCreator(attack))
     },
     executionDefence: (defence) => {
-      return new Promise((resolve, reject) => {
-        dispatch(defenceCreator(defence))
-        dispatch(executionDefenceCreator())
-        resolve()
-      }).then(() => {
-        dispatch(saveLocalCreator())
-      })
+      dispatch(executionDefenceThunkCreator(defence))
     },
     leave: () => {
-      return new Promise((resolve, reject) => {
-        dispatch(leaveCreator())
-        resolve()
-      }).then(() => {
-        dispatch(finishFightEnemyCreator())
-      })
+      dispatch(finishFightThunkCreator(leaveCreator))
     },
     win: () => {
-      return new Promise((resolve, reject) => {
-        dispatch(winCreator())
-        resolve()
-      }).then(() => {
-        dispatch(finishFightEnemyCreator())
-      })
+      dispatch(finishFightThunkCreator(winCreator))
     },
     kill: () => {
-      return new Promise((resolve, reject) => {
-        dispatch(killCreator())
-        resolve()
-      }).then(() => {
-        dispatch(finishFightEnemyCreator())
-      })
+      dispatch(finishFightThunkCreator(killCreator))
     },
     dead: () => {
-      return new Promise((resolve, reject) => {
-        dispatch(deadCreator())
-        resolve()
-      }).then(() => {
-        dispatch(finishFightEnemyCreator())
-      })
+      dispatch(finishFightThunkCreator(deadCreator))
     },
     isLeave: () => {
       dispatch(isLeaveCreator())

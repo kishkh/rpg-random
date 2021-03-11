@@ -1,3 +1,5 @@
+import { finishFightEnemyCreator } from "./enemy-reducer";
+
 const initialState = JSON.parse(localStorage.getItem('battle')) || {
   player: {
     name: 'user',
@@ -5,7 +7,7 @@ const initialState = JSON.parse(localStorage.getItem('battle')) || {
     exp: { current: 0, nextLvl: 0 },
     damage: { min: 0, max: 0 },
     hp: { current: 0, full: 0 },
-    stats: { coins: 0, win: 0, lose: 0},
+    stats: { coins: 0, win: 0, lose: 0 },
     items: {
       head: '', body: '', weapon: '',
       legs: '', color: ''
@@ -227,7 +229,7 @@ const battleReducer = (state = initialState, action) => {
         isFight: true,
       }
     case 'Leave':
-      
+
       return {
         ...state,
         isFight: false,
@@ -271,7 +273,7 @@ const battleReducer = (state = initialState, action) => {
         isFight: false,
       }
     case 'Save-local':
-      
+
       localStorage.setItem('battle', JSON.stringify(state))
       return {
         ...state
@@ -337,5 +339,69 @@ export const isWinCreator = () => {
 }
 export const saveLocalCreator = () => {
   return { type: 'Save-local' }
+}
+export const startThunkCreator = (player, enemy) => {
+  return (dispatch) => {
+    new Promise((resolve, reject) => {
+      dispatch(addBattleDataCreator(player, enemy))
+      resolve()
+    }).then(() => {
+      dispatch(startCreator())
+    })
+  }
+}
+export const attackThunkCreator = (attack) => {
+  return (dispatch) => {
+    new Promise((resolve, reject) => {
+      dispatch(attackCreator(attack))
+      dispatch(battleAttackCreator())
+      resolve()
+    }).then(() => {
+      dispatch(saveLocalCreator())
+    })
+  }
+}
+export const defenceThunkCreator = (defence) => {
+  return (dispatch) => {
+    new Promise((resolve, reject) => {
+      dispatch(defenceCreator(defence))
+      dispatch(battleDefenceCreator())
+      resolve()
+    }).then(() => {
+      dispatch(saveLocalCreator())
+    })
+  }
+}
+export const executionAttackThunkCreator = (attack) => {
+  return (dispatch) => {
+    new Promise((resolve, reject) => {
+      dispatch(attackCreator(attack))
+      dispatch(executionAttackCreator())
+      resolve()
+    }).then(() => {
+      dispatch(saveLocalCreator())
+    })
+  }
+}
+export const executionDefenceThunkCreator = (defence) => {
+  return (dispatch) => {
+    new Promise((resolve, reject) => {
+      dispatch(defenceCreator(defence))
+      dispatch(executionDefenceCreator())
+      resolve()
+    }).then(() => {
+      dispatch(saveLocalCreator())
+    })
+  }
+}
+export const finishFightThunkCreator = (result) => {
+  return (dispatch) => {
+    new Promise((resolve, reject) => {
+      dispatch(result())
+      resolve()
+    }).then(() => {
+      dispatch(finishFightEnemyCreator())
+    })
+  }
 }
 export default battleReducer;

@@ -37,10 +37,10 @@ class Battle extends React.Component {
     
     let hp = (hp) => {
       if(hp < this.props.battle.player.hp.full / 2 && hp > 1) {
-        return  `${classes.container} ${classes.half}`
+        return  classes.half
       } else if (hp === 1) {
-        return `${classes.container} ${classes.berserk}`
-      } else return  `${classes.container}`
+        return classes.berserk
+      }
     }
     this.props.battle.player.hp.current !== this.state.hpCurrent &&
     this.setState({
@@ -54,16 +54,17 @@ class Battle extends React.Component {
    
     return (
       <div className={classes.wrapper}>
-        <div className={this.state.hpClass}>
+        <div className={this.state.hpClass}></div>
+        <div className={classes.container}>
           <ModalWindow active={this.props.battle.modalLeave}>
-            <ModalTitle text={`Do yo really want to leave this fight? ${this.props.battle.enemy.name} will celebrate his victory and spend ${this.props.battle.enemy.result.coinLeave} coins`} />
+            <ModalTitle text={`Do yo really want to leave this fight? ${this.props.battle.enemy.name} will celebrate his victory and spend some coins`} />
             <div className={classes.btn_container}>
               <ModalButton ico='button_leave' event={this.props.leave} />
               <ModalButton ico='button_cross' event={this.props.isLeave} />
             </div>
           </ModalWindow>
           <ModalWindow active={this.props.battle.modalWin}>
-            <ModalTitle text= {`The enemy has lost and wants to pay ${this.props.battle.enemy.result.coinWin} coins you for his life. Do you agree? Or try to kill him and take all the treasures!`} />
+            <ModalTitle text= {`The enemy has lost and wants to pay ${this.props.battle.enemy.result.coinWin} coins for his life. Do you agree? Or try to kill him and take all the treasures!`} />
             <div className={classes.btn_container}>
               <ModalButton ico='button_win' event={this.props.win} />
               <ModalButton ico='button_cross' event={this.props.isWin} />
